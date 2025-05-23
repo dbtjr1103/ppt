@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>향후 계획 및 목표</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
+            overflow: hidden;
+        }
+        .title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0056b3;
+            opacity: 0;
+            animation: fadeInDown 0.8s forwards;
+        }
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#0056b320 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
+        }
+        .circuit-line {
+            position: absolute;
+            background-color: rgba(0, 86, 179, 0.1);
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .logo {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background-color: #0056b3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.2);
+        }
+        .roadmap-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .roadmap-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+        }
+        .roadmap-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .roadmap-card:hover .roadmap-icon {
+            transform: scale(1.1);
+        }
+        .cycle-step {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.1);
+            padding: 10px;
+            width: 140px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .cycle-step:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 86, 179, 0.15);
+        }
+        .cycle-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        .cycle-path {
+            position: absolute;
+            border: 2px dashed #0056b3;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeInRight 0.8s forwards;
+        }
+        .feature-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .highlight-text {
+            color: #0056b3;
+            font-weight: 500;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes rotateClockwise {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- 배경 패턴 -->
+        <div class="grid-pattern"></div>
+        
+        <!-- 회로 라인 장식 -->
+        <div class="circuit-line" style="top: 180px; left: 0; width: 25%; height: 3px;"></div>
+        <div class="circuit-line" style="top: 450px; right: 0; width: 30%; height: 3px;"></div>
+        <div class="circuit-line" style="top: 0; left: 300px; width: 3px; height: 15%;"></div>
+        <div class="circuit-line" style="bottom: 0; right: 200px; width: 3px; height: 20%;"></div>
+        
+        <!-- 메인 콘텐츠 -->
+        <div class="content-wrapper w-full px-14 py-10">
+            <h1 class="title mb-8">향후 계획 및 목표</h1>
+            
+            <div class="grid grid-cols-2 gap-10">
+                <!-- 왼쪽: 향후 계획 로드맵 -->
+                <div>
+                    <h3 class="text-xl font-bold text-blue-700 mb-6">
+                        <i class="fas fa-road mr-2"></i>
+                        데이터 기반 최적화 계획
+                    </h3>
+                    
+                    <!-- DB 구조 최적화 -->
+                    <div class="roadmap-card p-4 mb-5" style="animation: fadeIn 0.5s forwards 0.4s; border-left: 4px solid #3B82F6;">
+                        <div class="flex items-center">
+                            <div class="roadmap-icon" style="background-color: rgba(59, 130, 246, 0.1); color: #3B82F6;">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold text-gray-800">DB 구조 최적화</h3>
+                                <div class="mt-2">
+                                    <div class="flex items-center mb-2">
+                                        <span class="inline-block w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                        <span class="text-gray-700">Chunking 전략 적용</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="inline-block w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                        <span class="text-gray-700">메타데이터 정비 및 표준화</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 검색 정확도 향상 -->
+                    <div class="roadmap-card p-4 mb-5" style="animation: fadeIn 0.5s forwards 0.6s; border-left: 4px solid #10B981;">
+                        <div class="flex items-center">
+                            <div class="roadmap-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10B981;">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold text-gray-800">검색 정확도 향상</h3>
+                                <div class="mt-2">
+                                    <div class="flex items-center mb-2">
+                                        <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        <span class="text-gray-700">의도 기반 검색 알고리즘 도입</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        <span class="text-gray-700">벡터 + 키워드 하이브리드 검색</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI 모델 도메인 튜닝 -->
+                    <div class="roadmap-card p-4 mb-5" style="animation: fadeIn 0.5s forwards 0.8s; border-left: 4px solid #8B5CF6;">
+                        <div class="flex items-center">
+                            <div class="roadmap-icon" style="background-color: rgba(139, 92, 246, 0.1); color: #8B5CF6;">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold text-gray-800">AI 모델 도메인 튜닝</h3>
+                                <div class="mt-2">
+                                    <div class="flex items-center mb-2">
+                                        <span class="inline-block w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                                        <span class="text-gray-700">WIZnet 제품 전문 지식 학습</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="inline-block w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                                        <span class="text-gray-700">기술 도메인별 특화 응답 개선</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 기대효과 -->
+                    <div class="bg-blue-50 p-4 rounded-lg mt-6" style="opacity: 0; animation: fadeIn 0.8s forwards 1s;">
+                        <h4 class="font-medium text-blue-700 mb-2 flex items-center">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            기대효과
+                        </h4>
+                        <div class="grid grid-cols-3 gap-2 mt-3">
+                            <div class="bg-white p-3 rounded-lg text-center shadow-sm">
+                                <div class="text-blue-600 text-xl font-bold">90%+</div>
+                                <div class="text-xs text-gray-500">검색 정확도</div>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg text-center shadow-sm">
+                                <div class="text-green-600 text-xl font-bold">50%↓</div>
+                                <div class="text-xs text-gray-500">응답 시간</div>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg text-center shadow-sm">
+                                <div class="text-purple-600 text-xl font-bold">3x</div>
+                                <div class="text-xs text-gray-500">정보 활용도</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 오른쪽: 지속 개선 사이클 -->
+                <div>
+                    <h3 class="text-xl font-bold text-blue-700 mb-6">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        지속 개선 체계
+                    </h3>
+                    
+                    <!-- 지속 개선 사이클 시각화 -->
+                    <div class="relative h-96 flex items-center justify-center">
+                        <!-- 원형 경로 -->
+                        <div class="cycle-path" style="width: 320px; height: 320px; border-radius: 50%; left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
+                        
+                        <!-- 중앙 로고 -->
+                        <div class="absolute z-10" style="opacity: 0; animation: fadeIn 0.8s forwards 1s;">
+                            <div class="w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center shadow-lg" style="animation: pulse 3s infinite ease-in-out;">
+                                <span class="text-white font-bold">WIZnet<br>AI</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 사이클 스텝 1: 데이터 수집 -->
+                        <div class="cycle-step absolute" style="top: 10%; left: 50%; transform: translateX(-50%); animation: fadeIn 0.5s forwards 0.6s;">
+                            <div class="cycle-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #EF4444;">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <p class="text-sm font-medium text-gray-800">데이터 수집</p>
+                            <p class="text-xs text-gray-500">UCC, 피드백</p>
+                        </div>
+                        
+                        <!-- 사이클 스텝 2: 분석 및 평가 -->
+                        <div class="cycle-step absolute" style="top: 40%; right: 5%; animation: fadeIn 0.5s forwards 0.8s;">
+                            <div class="cycle-icon" style="background-color: rgba(245, 158, 11, 0.1); color: #F59E0B;">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <p class="text-sm font-medium text-gray-800">분석 및 평가</p>
+                            <p class="text-xs text-gray-500">응답 품질 측정</p>
+                        </div>
+                        
+                        <!-- 사이클 스텝 3: 개선 적용 -->
+                        <div class="cycle-step absolute" style="bottom: 10%; left: 50%; transform: translateX(-50%); animation: fadeIn 0.5s forwards 1s;">
+                            <div class="cycle-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10B981;">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <p class="text-sm font-medium text-gray-800">개선 적용</p>
+                            <p class="text-xs text-gray-500">모델·데이터 업데이트</p>
+                        </div>
+                        
+                        <!-- 사이클 스텝 4: 사용자 경험 -->
+                        <div class="cycle-step absolute" style="top: 40%; left: 5%; animation: fadeIn 0.5s forwards 1.2s;">
+                            <div class="cycle-icon" style="background-color: rgba(59, 130, 246, 0.1); color: #3B82F6;">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <p class="text-sm font-medium text-gray-800">사용자 경험</p>
+                            <p class="text-xs text-gray-500">실제 사용 및 피드백</p>
+                        </div>
+                        
+                        <!-- 화살표 회전 이미지 -->
+                        <div class="absolute" style="width: 350px; height: 350px; opacity: 0; animation: fadeIn 0.8s forwards 1.4s;">
+                            <div style="width: 100%; height: 100%; border: 2px dashed rgba(0, 86, 179, 0.3); border-radius: 50%; animation: rotateClockwise 20s linear infinite;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 피드백 시스템 하이라이트 -->
+                    <div class="bg-blue-50 p-4 rounded-lg mt-4" style="opacity: 0; animation: fadeIn 0.8s forwards 1.4s;">
+                        <h4 class="font-medium text-blue-700 mb-3">피드백 루프 효과</h4>
+                        <div class="feature-item" style="animation-delay: 1.6s;">
+                            <div class="feature-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10B981;">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <p class="text-sm text-gray-700">
+                                <span class="highlight-text">맞춤형 응답</span> - 고객 질문 패턴 학습으로 정확도 향상
+                            </p>
+                        </div>
+                        <div class="feature-item" style="animation-delay: 1.8s;">
+                            <div class="feature-icon" style="background-color: rgba(139, 92, 246, 0.1); color: #8B5CF6;">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <p class="text-sm text-gray-700">
+                                <span class="highlight-text">취약점 보완</span> - 오답 분석으로 지식 격차 보완
+                            </p>
+                        </div>
+                        <div class="feature-item" style="animation-delay: 2s;">
+                            <div class="feature-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #EF4444;">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <p class="text-sm text-gray-700">
+                                <span class="highlight-text">제품 인사이트</span> - 자주 묻는 질문 패턴으로 개발 방향 참고
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 페이지 번호 -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-500">
+            12 / 14
+        </div>
+        
+        <!-- 로고 -->
+        <div class="logo">
+            WIZnet
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 로드맵 카드 애니메이션
+            const roadmapCards = document.querySelectorAll('.roadmap-card');
+            roadmapCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const icon = card.querySelector('.roadmap-icon');
+                    icon.style.transform = 'scale(1.1)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const icon = card.querySelector('.roadmap-icon');
+                    icon.style.transform = 'scale(1)';
+                });
+            });
+            
+            // 사이클 스텝 애니메이션
+            const cycleSteps = document.querySelectorAll('.cycle-step');
+            cycleSteps.forEach(step => {
+                step.addEventListener('mouseenter', () => {
+                    step.style.transform = 'translateY(-5px) scale(1.05)';
+                    step.style.boxShadow = '0 12px 24px rgba(0, 86, 179, 0.15)';
+                });
+                
+                step.addEventListener('mouseleave', () => {
+                    // 위치에 따라 원래 스타일로 복원
+                    if (step.style.top === '10%') {
+                        step.style.transform = 'translateX(-50%)';
+                    } else if (step.style.bottom === '10%') {
+                        step.style.transform = 'translateX(-50%)';
+                    } else {
+                        step.style.transform = 'translate(0, 0)';
+                    }
+                    step.style.boxShadow = '0 5px 15px rgba(0, 86, 179, 0.1)';
+                });
+            });
+            
+            // 기대효과 카드 애니메이션
+            const effectCards = document.querySelectorAll('.bg-white.p-3');
+            effectCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-3px)';
+                    card.style.boxShadow = '0 8px 15px rgba(0, 86, 179, 0.1)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

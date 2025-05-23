@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>큐레이션 참여 방법</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
+            overflow: hidden;
+        }
+        .title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0056b3;
+            opacity: 0;
+            animation: fadeInDown 0.8s forwards;
+        }
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#0056b320 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
+        }
+        .circuit-line {
+            position: absolute;
+            background-color: rgba(0, 86, 179, 0.1);
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .logo {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background-color: #0056b3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.2);
+        }
+        .step-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #0056b3;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 14px;
+            flex-shrink: 0;
+        }
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .step-card:hover .step-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 1.2s;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, #0056b3 0%, rgba(0, 86, 179, 0.3) 100%);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -34px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #0056b3;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
+            top: 5px;
+        }
+        .notice-banner {
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards 1.4s;
+        }
+        .contact-info {
+            opacity: 0;
+            animation: fadeIn 0.8s forwards 1.6s;
+        }
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(0, 86, 179, 0.1);
+            color: #0056b3;
+            border-radius: 20px;
+            padding: 8px 16px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .contact-button:hover {
+            background-color: #0056b3;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 86, 179, 0.2);
+            margin: 15px 0;
+        }
+        .progress-indicator {
+            position: relative;
+            height: 6px;
+            width: 100%;
+            background-color: rgba(0, 86, 179, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background-color: #0056b3;
+            border-radius: 3px;
+            animation: fillProgress 1.5s forwards 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fillProgress {
+            from {
+                width: 0%;
+            }
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- 배경 패턴 -->
+        <div class="grid-pattern"></div>
+        
+        <!-- 회로 라인 장식 -->
+        <div class="circuit-line" style="top: 180px; left: 0; width: 25%; height: 3px;"></div>
+        <div class="circuit-line" style="top: 450px; right: 0; width: 30%; height: 3px;"></div>
+        <div class="circuit-line" style="top: 0; left: 300px; width: 3px; height: 15%;"></div>
+        <div class="circuit-line" style="bottom: 0; right: 200px; width: 3px; height: 20%;"></div>
+        
+        <!-- 메인 콘텐츠 -->
+        <div class="content-wrapper w-full px-14 py-10">
+            <h1 class="title mb-8">큐레이션 참여 방법</h1>
+            
+            <!-- 3단계 프로세스 카드 -->
+            <div class="grid grid-cols-3 gap-6 mb-6">
+                <!-- 1단계: 분류 기준 참고 -->
+                <div class="step-card" style="animation: fadeInUp 0.5s forwards 0.4s; border-top: 4px solid #0056b3;">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h3 class="text-lg font-bold text-gray-800">분류 기준 참고</h3>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="step-icon" style="background-color: rgba(0, 86, 179, 0.1); color: #0056b3;">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 mb-3">이전에 공유한 분류 기준을 확인해주세요.</p>
+                            <div class="bg-gray-100 p-2 rounded-md">
+                                <div class="flex items-center text-sm mb-2">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span>적합한 콘텐츠 기준</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-times-circle text-red-500 mr-2"></i>
+                                    <span>제외할 콘텐츠 기준</span>
+                                </div>
+                            </div>
+                            <div class="progress-indicator mt-4">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 2단계: UCC 검토 및 분류 -->
+                <div class="step-card" style="animation: fadeInUp 0.5s forwards 0.6s; border-top: 4px solid #10b981;">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h3 class="text-lg font-bold text-gray-800">UCC 검토 및 분류</h3>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="step-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 mb-3">UCC를 검토하고 가치 있는 콘텐츠를 선별합니다.</p>
+                            <div class="flex flex-col space-y-2">
+                                <div class="flex items-center bg-green-50 p-2 rounded-md">
+                                    <i class="fas fa-thumbs-up text-green-500 mr-2"></i>
+                                    <span class="text-sm">제품·기술 활용 사례</span>
+                                </div>
+                                <div class="flex items-center bg-red-50 p-2 rounded-md">
+                                    <i class="fas fa-thumbs-down text-red-500 mr-2"></i>
+                                    <span class="text-sm">중복/무관련 콘텐츠</span>
+                                </div>
+                            </div>
+                            <div class="progress-indicator mt-4">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3단계: 그룹웨어에 등록 -->
+                <div class="step-card" style="animation: fadeInUp 0.5s forwards 0.8s; border-top: 4px solid #f59e0b;">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h3 class="text-lg font-bold text-gray-800">그룹웨어에 등록</h3>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="step-icon" style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 mb-3">검토 결과를 그룹웨어 시스템에 등록합니다.</p>
+                            <div class="bg-blue-50 p-3 rounded-md">
+                                <div class="text-sm font-medium text-blue-700 mb-1">등록 정보 포함 내용:</div>
+                                <div class="flex items-center text-sm mb-1">
+                                    <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                    <span>UCC 출처 및 링크</span>
+                                </div>
+                                <div class="flex items-center text-sm mb-1">
+                                    <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                    <span>관련 제품 및 기술</span>
+                                </div>
+                                <div class="flex items-center text-sm">
+                                    <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                    <span>가치 평가 및 분류</span>
+                                </div>
+                            </div>
+                            <div class="progress-indicator mt-4">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 타임라인 섹션 -->
+            <div class="timeline">
+                <h3 class="text-xl font-bold text-blue-700 mb-4">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    상세 안내 일정
+                </h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 text-blue-800 font-medium px-3 py-1 rounded-full mr-3">이번 주 금요일</div>
+                        <span class="text-gray-700">또는</span>
+                        <div class="bg-blue-100 text-blue-800 font-medium px-3 py-1 rounded-full mx-3">다음 주 초</div>
+                    </div>
+                    <p class="text-gray-600 mt-1 ml-2">그룹웨어를 통한 상세 안내 공지 예정</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="font-medium text-gray-800">공지 내용 확인 필수</div>
+                    <p class="text-gray-600 mt-1 ml-2">큐레이션 작업 관련 상세 지침과 방법 안내</p>
+                </div>
+            </div>
+            
+            <!-- 알림 배너 -->
+            <div class="notice-banner">
+                <div class="flex items-center">
+                    <i class="fas fa-bell text-yellow-600 text-xl mr-3"></i>
+                    <h3 class="text-lg font-bold text-yellow-700">알림</h3>
+                </div>
+                <p class="text-gray-700 mt-1 ml-6">
+                    관련 사용 방법은 이번 주 금요일 또는 다음 주 초에 그룹웨어로 상세 공지 예정이니, 반드시 확인해주세요.
+                </p>
+            </div>
+            
+            <!-- 문의 연락처 -->
+            <div class="contact-info mt-5">
+                <div class="divider"></div>
+                <div class="flex items-center justify-between mt-4">
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-800">궁금한 점이 있으신가요?</h3>
+                        <p class="text-gray-600">언제든지 아래 연락처로 문의해주세요.</p>
+                    </div>
+                    <div class="flex">
+                        <a href="#" class="contact-button">
+                            <i class="fas fa-user-tie mr-2"></i>
+                            팀장님
+                        </a>
+                        <a href="#" class="contact-button">
+                            <i class="fas fa-user mr-2"></i>
+                            Benjamin
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- 페이지 번호 -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-500">
+            9 / 14
+        </div>
+        
+        <!-- 로고 -->
+        <div class="logo">
+            WIZnet
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 카드 애니메이션 설정
+            const stepCards = document.querySelectorAll('.step-card');
+            stepCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                }, 400 + (index * 200));
+                
+                card.addEventListener('mouseenter', () => {
+                    const icon = card.querySelector('.step-icon');
+                    icon.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const icon = card.querySelector('.step-icon');
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+            
+            // 컨택트 버튼 인터랙션
+            const contactButtons = document.querySelectorAll('.contact-button');
+            contactButtons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    button.style.transform = 'translateY(-2px)';
+                });
+                
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
