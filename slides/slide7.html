@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -18,13 +17,13 @@
         }
         .slide-container {
             width: 1280px;
-            min-height: 720px;
+            height: 720px;
             position: relative;
             background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
             overflow: hidden;
         }
         .title {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #0056b3;
             opacity: 0;
@@ -53,8 +52,8 @@
             position: absolute;
             bottom: 40px;
             right: 40px;
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -62,48 +61,42 @@
         .info-card {
             background-color: white;
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             box-shadow: 0 8px 24px rgba(0, 86, 179, 0.1);
             opacity: 0;
             transition: all 0.3s ease;
             position: relative;
         }
         .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 86, 179, 0.15);
         }
         .card-accent {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 5px;
             border-radius: 12px 12px 0 0;
         }
         .icon-box {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 14px;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
             transition: transform 0.3s ease;
-        }
-        .chart-container {
-            position: relative;
-            height: 270px;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 0.6s;
         }
         .problem-item {
             display: flex;
             align-items: center;
-            padding: 10px 12px;
+            padding: 12px 14px;
             border-radius: 8px;
             background-color: rgba(0, 86, 179, 0.05);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             transition: all 0.3s ease;
             opacity: 0;
         }
@@ -118,25 +111,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-right: 14px;
             flex-shrink: 0;
         }
         .conclusion-banner {
             background: linear-gradient(90deg, rgba(0, 86, 179, 0.1) 0%, rgba(0, 86, 179, 0.05) 100%);
             border-left: 5px solid #0056b3;
-            padding: 16px 24px;
+            padding: 16px 20px;
             border-radius: 0 8px 8px 0;
             opacity: 0;
-            animation: fadeIn 0.8s forwards 1.8s;
+            animation: fadeIn 0.8s forwards 1.4s;
         }
         .percentage-container {
             position: relative;
             width: 100%;
-            height: 30px;
+            height: 25px;
             background-color: rgba(220, 38, 38, 0.1);
-            border-radius: 15px;
-            margin: 20px 0;
+            border-radius: 12px;
+            margin: 16px 0;
             overflow: hidden;
             opacity: 0;
             animation: fadeIn 0.8s forwards 1.2s;
@@ -147,40 +140,20 @@
             left: 0;
             height: 100%;
             background: linear-gradient(90deg, rgba(220, 38, 38, 0.7) 0%, rgba(220, 38, 38, 0.9) 100%);
-            border-radius: 15px;
+            border-radius: 12px;
             width: 0;
             animation: fillBar 1.5s forwards 1.4s ease-out;
         }
         .percentage-number {
             position: absolute;
             top: 50%;
-            left: 15%;
+            left: 12%;
             transform: translate(-50%, -50%);
             color: white;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             opacity: 0;
             animation: fadeIn 0.5s forwards 2s;
-        }
-        .w5500-comparison {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 1.6s;
-        }
-        .comparison-item {
-            background-color: white;
-            border-radius: 10px;
-            padding: 16px;
-            width: 48%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-        .comparison-arrow {
-            font-size: 2rem;
-            color: #0056b3;
         }
 
         @keyframes fadeInDown {
@@ -227,17 +200,17 @@
         <div class="grid-pattern"></div>
         
         <!-- 회로 라인 장식 -->
-        <div class="circuit-line" style="top: 180px; left: 0; width: 25%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 450px; right: 0; width: 30%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 0; left: 300px; width: 3px; height: 15%;"></div>
-        <div class="circuit-line" style="bottom: 0; right: 200px; width: 3px; height: 20%;"></div>
+        <div class="circuit-line" style="top: 160px; left: 0; width: 25%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 400px; right: 0; width: 30%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 0; left: 300px; width: 2px; height: 15%;"></div>
+        <div class="circuit-line" style="bottom: 0; right: 200px; width: 2px; height: 20%;"></div>
         
         <!-- 메인 콘텐츠 -->
-        <div class="content-wrapper w-full px-14 py-10">
-            <h1 class="title mb-6">현재 상황 및 과제</h1>
+        <div class="content-wrapper w-full px-12 py-8 h-full">
+            <h1 class="title mb-5">현재 상황 및 과제</h1>
             
             <!-- 메인 카드: 실제 유의미한 콘텐츠 비율 -->
-            <div class="info-card mb-8" style="animation: fadeIn 0.8s forwards 0.5s;">
+            <div class="info-card mb-6" style="animation: fadeIn 0.8s forwards 0.5s;">
                 <div class="card-accent" style="background: linear-gradient(90deg, #dc2626, #ef4444);"></div>
                 
                 <div class="flex items-center">
@@ -245,7 +218,7 @@
                         <i class="fas fa-search"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-red-600">UCC 검색 결과 품질 분석</h3>
+                        <h3 class="text-lg font-bold text-red-600">UCC 검색 결과 품질 분석</h3>
                         <p class="text-gray-700">많은 노력에도 불구하고 유의미한 콘텐츠는 소수에 불과합니다</p>
                     </div>
                 </div>
@@ -255,11 +228,11 @@
                     <div class="percentage-fill"></div>
                     <div class="percentage-number">15%</div>
                 </div>
-                <div class="text-center text-sm text-gray-500 -mt-3">유의미한 콘텐츠 비율</div>
+                <div class="text-center text-sm text-gray-500 -mt-2">유의미한 콘텐츠 비율</div>
             </div>
             
             <!-- 그리드 레이아웃: 문제점과 과제 -->
-            <div class="grid grid-cols-2 gap-6">
+            <div class="grid grid-cols-2 gap-6 h-96">
                 <!-- 왼쪽: 주요 문제점 -->
                 <div class="flex flex-col">
                     <h3 class="text-lg font-bold text-blue-700 mb-3">
@@ -297,60 +270,52 @@
                         </div>
                     </div>
                     
-                    <!-- W5500 검색 결과 비교 -->
-                    <div class="w5500-comparison">
-                        <div class="comparison-item">
-                            <div class="flex items-center justify-center">
-                                <i class="fas fa-search text-blue-600 mr-2"></i>
-                                <span class="text-lg font-bold">전체 UCC</span>
-                            </div>
-                            <div class="text-center text-3xl font-bold text-blue-800 mt-1">100%</div>
+                    <div class="problem-item" style="animation: fadeInUp 0.5s forwards 1.4s;">
+                        <div class="problem-icon" style="background-color: rgba(139, 69, 19, 0.1); color: #8b4513;">
+                            <i class="fas fa-filter"></i>
                         </div>
-                        
-                        <div class="comparison-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        
-                        <div class="comparison-item">
-                            <div class="flex items-center justify-center">
-                                <i class="fas fa-microchip text-blue-600 mr-2"></i>
-                                <span class="text-lg font-bold">W5500 결과</span>
-                            </div>
-                            <div class="text-center text-3xl font-bold text-blue-800 mt-1">~50%</div>
+                        <div>
+                            <div class="font-bold">필터링 한계</div>
+                            <div class="text-sm text-gray-600">현재 자동화만으로는 품질 보장 어려움</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 오른쪽: 차트와 결론 -->
-                <div class="flex flex-col">
-                    <!-- 차트 -->
-                    <div class="chart-container mb-4">
-                        <canvas id="contentQualityChart"></canvas>
-                    </div>
-                    
+                <!-- 오른쪽: 결론 및 해결방안 -->
+                <div class="flex flex-col justify-center">
                     <!-- 결론 및 다음 단계 -->
                     <div class="conclusion-banner">
-                        <h3 class="text-lg font-bold text-blue-800">
+                        <h3 class="text-lg font-bold text-blue-800 mb-3">
                             <i class="fas fa-hand-point-right mr-2"></i>사람의 손길이 필요한 시점
                         </h3>
-                        <ul class="text-gray-700 mt-2">
-                            <li class="mb-1"><i class="fas fa-check-circle text-green-500 mr-2"></i>노이즈 제거</li>
-                            <li class="mb-1"><i class="fas fa-check-circle text-green-500 mr-2"></i>고품질 콘텐츠 선별</li>
-                            <li class="mb-3"><i class="fas fa-check-circle text-green-500 mr-2"></i>메타데이터 강화</li>
-                        </ul>
-                        <div class="mt-2 border-t border-blue-200 pt-2">
+                        <div class="space-y-2 mb-4">
                             <div class="flex items-center">
-                                <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
-                                <div class="text-blue-800 font-medium">향후 계획:</div>
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span class="text-gray-700">노이즈 제거 및 중복 콘텐츠 정리</span>
                             </div>
-                            <div class="flex items-center justify-between mt-1">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span class="text-gray-700">고품질 콘텐츠 선별 및 큐레이션</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span class="text-gray-700">메타데이터 강화 및 태깅</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-blue-200 pt-3">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                <div class="text-blue-800 font-medium">향후 계획</div>
+                            </div>
+                            <div class="grid grid-cols-1 gap-2">
                                 <div class="flex items-center">
                                     <i class="fas fa-robot text-blue-500 mr-2"></i>
-                                    <span class="text-gray-700">Search AI 적용</span>
+                                    <span class="text-gray-700 text-sm">Search AI 적용으로 검색 정확도 향상</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-filter text-blue-500 mr-2"></i>
-                                    <span class="text-gray-700">UCC 정제와 큐레이션 집중</span>
+                                    <i class="fas fa-cogs text-blue-500 mr-2"></i>
+                                    <span class="text-gray-700 text-sm">UCC 정제 및 품질 관리 프로세스 확립</span>
                                 </div>
                             </div>
                         </div>
@@ -366,7 +331,7 @@
         
         <!-- 로고 -->
         <div class="logo">
-            <img src="C:\Users\Benjamin\wiznet\ppt\wiznet_logo.svg" alt="WIZnet Logo">
+            <img src="../wiznet_logo.svg" alt="WIZnet Logo">
         </div>
     </div>
 
@@ -384,69 +349,6 @@
                     const icon = item.querySelector('.problem-icon');
                     icon.style.transform = 'scale(1)';
                 });
-            });
-            
-            // 콘텐츠 품질 차트
-            const ctx = document.getElementById('contentQualityChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['유의미한 콘텐츠', '중복 콘텐츠', '관련 없는 콘텐츠', '내부용 콘텐츠'],
-                    datasets: [{
-                        data: [15, 35, 30, 20],
-                        backgroundColor: [
-                            'rgba(0, 86, 179, 0.8)',
-                            'rgba(239, 68, 68, 0.6)',
-                            'rgba(245, 158, 11, 0.6)',
-                            'rgba(16, 185, 129, 0.6)'
-                        ],
-                        borderColor: [
-                            'rgba(0, 86, 179, 1)',
-                            'rgba(239, 68, 68, 0.8)',
-                            'rgba(245, 158, 11, 0.8)',
-                            'rgba(16, 185, 129, 0.8)'
-                        ],
-                        borderWidth: 2,
-                        hoverOffset: 10
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                padding: 20,
-                                boxWidth: 12,
-                                font: {
-                                    family: '"Noto Sans KR", sans-serif',
-                                    size: 12
-                                }
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: 'UCC 콘텐츠 품질 분석',
-                            font: {
-                                family: '"Noto Sans KR", sans-serif',
-                                size: 16,
-                                weight: 'bold'
-                            },
-                            color: '#0056b3',
-                            padding: {
-                                bottom: 15
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.label}: ${context.raw}%`;
-                                }
-                            }
-                        }
-                    }
-                }
             });
         });
     </script>

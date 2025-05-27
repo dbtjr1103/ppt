@@ -17,13 +17,13 @@
         }
         .slide-container {
             width: 1280px;
-            min-height: 720px;
+            height: 720px;
             position: relative;
             background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
             overflow: hidden;
         }
         .title {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #0056b3;
             opacity: 0;
@@ -52,17 +52,11 @@
             position: absolute;
             bottom: 40px;
             right: 40px;
-            width: 80px;
-            height: 80px;
-            background-color: #0056b3;
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.2);
         }
         .document-card {
             background-color: white;
@@ -74,21 +68,21 @@
             overflow: hidden;
         }
         .document-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 86, 179, 0.15);
         }
         .md-file {
             background-color: white;
             border-radius: 8px;
             border: 1px solid rgba(0, 86, 179, 0.2);
-            padding: 12px;
+            padding: 10px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         .md-file:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.15);
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.15);
         }
         .md-file::before {
             content: 'MD';
@@ -103,14 +97,14 @@
             border-radius: 0 8px 0 8px;
         }
         .doc-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-right: 15px;
+            font-size: 1.5rem;
+            margin-right: 12px;
             flex-shrink: 0;
             transition: transform 0.3s ease;
         }
@@ -122,82 +116,41 @@
             opacity: 0;
             animation: fadeIn 1s forwards 0.8s;
         }
-        .arrow-line {
-            height: 3px;
-            background-color: #0056b3;
-            position: relative;
-            flex-grow: 1;
-        }
-        .arrow-line::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: -6px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid #0056b3;
-            border-top: 6px solid transparent;
-            border-bottom: 6px solid transparent;
-        }
         .highlight-box {
             background: linear-gradient(135deg, rgba(0, 86, 179, 0.07) 0%, rgba(0, 86, 179, 0.12) 100%);
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             border-left: 5px solid #0056b3;
             opacity: 0;
             animation: fadeInUp 0.8s forwards 1s;
         }
-        .file-structure {
-            opacity: 0;
-            animation: fadeInRight 0.8s forwards 0.6s;
-        }
-        .md-topic {
-            display: inline-block;
-            background-color: rgba(16, 185, 129, 0.1);
-            color: #10b981;
-            border-radius: 4px;
-            padding: 2px 8px;
-            margin: 3px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .md-topic:hover {
-            background-color: #10b981;
-            color: white;
-            transform: translateY(-2px);
-        }
-        .doc-benefits {
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 1.2s;
-        }
         .benefit-item {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             padding: 8px;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
         .benefit-item:hover {
             background-color: rgba(0, 86, 179, 0.05);
-            transform: translateX(5px);
+            transform: translateX(3px);
         }
         .benefit-icon {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px;
+            margin-right: 10px;
             flex-shrink: 0;
+            font-size: 0.9rem;
         }
         .code-block {
             background-color: #1e293b;
             border-radius: 8px;
-            padding: 15px;
+            padding: 12px;
             font-family: 'Consolas', monospace;
             color: #e2e8f0;
             position: relative;
@@ -207,8 +160,9 @@
         }
         .code-line {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             opacity: 0;
+            font-size: 0.85rem;
         }
         .code-comment {
             color: #94a3b8;
@@ -248,24 +202,6 @@
                 transform: translateY(0);
             }
         }
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        @keyframes typeWriter {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -274,96 +210,104 @@
         <div class="grid-pattern"></div>
         
         <!-- 회로 라인 장식 -->
-        <div class="circuit-line" style="top: 180px; left: 0; width: 25%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 450px; right: 0; width: 30%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 0; left: 300px; width: 3px; height: 15%;"></div>
-        <div class="circuit-line" style="bottom: 0; right: 200px; width: 3px; height: 20%;"></div>
+        <div class="circuit-line" style="top: 160px; left: 0; width: 25%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 400px; right: 0; width: 30%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 0; left: 300px; width: 2px; height: 15%;"></div>
+        <div class="circuit-line" style="bottom: 0; right: 200px; width: 2px; height: 20%;"></div>
         
         <!-- 메인 콘텐츠 -->
-        <div class="content-wrapper w-full px-14 py-10">
-            <h1 class="title mb-8">Docs 문서 정리</h1>
+        <div class="content-wrapper w-full px-12 py-8 h-full">
+            <h1 class="title mb-6">Docs 문서 정리</h1>
+            
+            <!-- 상단 설명 -->
+            <div class="text-center mb-6 opacity-0" style="animation: fadeIn 0.8s forwards 0.5s;">
+                <p class="text-lg text-gray-700">
+                    <span class="font-bold text-blue-700">AI가 잘 참고할 수 있도록</span>, 
+                    기존 문서를 <span class="font-bold text-blue-700">개별 MD 파일로 재정리</span>가 필요합니다
+                </p>
+            </div>
             
             <!-- 메인 그리드 콘텐츠 -->
-            <div class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-2 gap-8 h-96">
                 <!-- 왼쪽: 문서 재구성 과정 시각화 -->
-                <div>
+                <div class="flex flex-col justify-center">
                     <!-- 원래 문서 이미지 -->
-                    <div class="document-card p-5 mb-4" style="animation: fadeInUp 0.5s forwards 0.4s;">
+                    <div class="document-card p-4 mb-3" style="animation: fadeInUp 0.5s forwards 0.4s;">
                         <div class="flex items-center mb-3">
                             <div class="doc-icon" style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b;">
                                 <i class="fas fa-file-alt"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-bold text-gray-800">기존 문서</h3>
+                                <h3 class="text-base font-bold text-gray-800">기존 문서</h3>
                                 <p class="text-sm text-gray-500">긴 형태의 통합 문서</p>
                             </div>
                         </div>
                         <div class="bg-gray-100 p-3 rounded-lg border border-gray-200">
                             <div class="mb-2 border-b border-gray-300 pb-2">
-                                <div class="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
-                                <div class="h-3 bg-gray-300 rounded w-1/2"></div>
+                                <div class="h-3 bg-gray-300 rounded w-3/4 mb-1"></div>
+                                <div class="h-2 bg-gray-300 rounded w-1/2"></div>
                             </div>
                             <div class="mb-2 border-b border-gray-300 pb-2">
-                                <div class="h-4 bg-gray-300 rounded w-2/3 mb-2"></div>
-                                <div class="h-3 bg-gray-300 rounded w-3/5"></div>
+                                <div class="h-3 bg-gray-300 rounded w-2/3 mb-1"></div>
+                                <div class="h-2 bg-gray-300 rounded w-3/5"></div>
                             </div>
                             <div>
-                                <div class="h-4 bg-gray-300 rounded w-4/5 mb-2"></div>
-                                <div class="h-3 bg-gray-300 rounded w-2/3"></div>
+                                <div class="h-3 bg-gray-300 rounded w-4/5 mb-1"></div>
+                                <div class="h-2 bg-gray-300 rounded w-2/3"></div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- 화살표 -->
-                    <div class="arrow-flow my-4">
-                        <div class="w-14 text-center">
-                            <i class="fas fa-long-arrow-alt-down text-2xl text-blue-600"></i>
+                    <div class="arrow-flow my-3">
+                        <div class="w-12 text-center">
+                            <i class="fas fa-long-arrow-alt-down text-xl text-blue-600"></i>
                         </div>
                     </div>
                     
                     <!-- 재구성 과정 -->
-                    <div class="document-card p-5" style="animation: fadeInUp 0.5s forwards 0.6s;">
+                    <div class="document-card p-4" style="animation: fadeInUp 0.5s forwards 0.6s;">
                         <div class="flex items-center mb-3">
                             <div class="doc-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;">
                                 <i class="fas fa-file-code"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-bold text-gray-800">개별 MD 파일</h3>
+                                <h3 class="text-base font-bold text-gray-800">개별 MD 파일</h3>
                                 <p class="text-sm text-gray-500">주제별로 분리된 마크다운</p>
                             </div>
                         </div>
-                        <div class="grid grid-cols-3 gap-3">
+                        <div class="grid grid-cols-3 gap-2">
                             <div class="md-file">
-                                <div class="h-4 bg-blue-100 rounded w-3/4 mb-2"></div>
-                                <div class="h-3 bg-gray-100 rounded w-full"></div>
-                                <div class="h-3 bg-gray-100 rounded w-2/3 mt-1"></div>
+                                <div class="h-3 bg-blue-100 rounded w-3/4 mb-1"></div>
+                                <div class="h-2 bg-gray-100 rounded w-full"></div>
+                                <div class="h-2 bg-gray-100 rounded w-2/3 mt-1"></div>
                             </div>
                             <div class="md-file">
-                                <div class="h-4 bg-green-100 rounded w-3/4 mb-2"></div>
-                                <div class="h-3 bg-gray-100 rounded w-full"></div>
-                                <div class="h-3 bg-gray-100 rounded w-2/3 mt-1"></div>
+                                <div class="h-3 bg-green-100 rounded w-3/4 mb-1"></div>
+                                <div class="h-2 bg-gray-100 rounded w-full"></div>
+                                <div class="h-2 bg-gray-100 rounded w-2/3 mt-1"></div>
                             </div>
                             <div class="md-file">
-                                <div class="h-4 bg-yellow-100 rounded w-3/4 mb-2"></div>
-                                <div class="h-3 bg-gray-100 rounded w-full"></div>
-                                <div class="h-3 bg-gray-100 rounded w-2/3 mt-1"></div>
+                                <div class="h-3 bg-yellow-100 rounded w-3/4 mb-1"></div>
+                                <div class="h-2 bg-gray-100 rounded w-full"></div>
+                                <div class="h-2 bg-gray-100 rounded w-2/3 mt-1"></div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- 이점 설명 -->
-                    <div class="doc-benefits">
-                        <h3 class="text-lg font-bold text-blue-700 mb-3">
-                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
-                            주제별 명확한 분리의 이점
-                        </h3>
+                    <div class="mt-4 opacity-0" style="animation: fadeIn 0.8s forwards 1.2s;">
+                        <h4 class="text-sm font-bold text-blue-700 mb-2">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-1"></i>
+                            주제별 분리의 이점
+                        </h4>
                         <div class="benefit-item">
                             <div class="benefit-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444;">
                                 <i class="fas fa-search"></i>
                             </div>
                             <div>
-                                <p class="font-medium text-gray-700">정확한 정보 검색</p>
-                                <p class="text-sm text-gray-500">AI가 관련성 높은 문서를 정확히 찾을 수 있음</p>
+                                <p class="font-medium text-gray-700 text-sm">정확한 정보 검색</p>
+                                <p class="text-xs text-gray-500">AI가 관련성 높은 문서를 정확히 찾음</p>
                             </div>
                         </div>
                         <div class="benefit-item">
@@ -371,40 +315,31 @@
                                 <i class="fas fa-bolt"></i>
                             </div>
                             <div>
-                                <p class="font-medium text-gray-700">응답 속도 향상</p>
-                                <p class="text-sm text-gray-500">불필요한 콘텐츠 스캔 과정 감소</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon" style="background-color: rgba(0, 86, 179, 0.1); color: #0056b3;">
-                                <i class="fas fa-gem"></i>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-700">응답 품질 개선</p>
-                                <p class="text-sm text-gray-500">더 정확하고 핵심적인 정보 제공</p>
+                                <p class="font-medium text-gray-700 text-sm">응답 속도 향상</p>
+                                <p class="text-xs text-gray-500">불필요한 콘텐츠 스캔 과정 감소</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 오른쪽: MD 문서 및 주제 구조 -->
-                <div class="flex flex-col justify-between">
+                <!-- 오른쪽: MD 문서 예시 및 가이드 -->
+                <div class="flex flex-col">
                     <!-- MD 파일 구조 시각화 -->
-                    <div class="file-structure mb-6">
-                        <h3 class="text-lg font-bold text-blue-700 mb-4">
+                    <div class="opacity-0" style="animation: fadeIn 0.8s forwards 0.6s;">
+                        <h3 class="text-lg font-bold text-blue-700 mb-3">
                             <i class="fas fa-sitemap mr-2"></i>
-                            문서 주제별 구조화
+                            문서 구조 예시
                         </h3>
                         
-                        <div class="code-block mb-5">
-                            <div class="absolute top-3 right-3 flex space-x-2">
-                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <div class="code-block mb-4">
+                            <div class="absolute top-2 right-2 flex space-x-1">
+                                <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                                <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
                             </div>
-                            <div class="mt-4">
+                            <div class="mt-3">
                                 <span class="code-line" style="animation: fadeIn 0.3s forwards 1.2s">
-                                    <span class="code-comment">// 제품 문서 구조 예시</span>
+                                    <span class="code-comment">// 주제별 문서 구조</span>
                                 </span>
                                 <span class="code-line" style="animation: fadeIn 0.3s forwards 1.3s">
                                     docs/
@@ -419,7 +354,7 @@
                                     │   ├── <span class="code-string">W5500_features.md</span>
                                 </span>
                                 <span class="code-line" style="animation: fadeIn 0.3s forwards 1.7s">
-                                    │   └── <span class="code-string">W5500_specifications.md</span>
+                                    │   └── <span class="code-string">W5500_specs.md</span>
                                 </span>
                                 <span class="code-line" style="animation: fadeIn 0.3s forwards 1.8s">
                                     ├── <span class="code-keyword">tutorials/</span>
@@ -428,76 +363,56 @@
                                     │   ├── <span class="code-string">getting_started.md</span>
                                 </span>
                                 <span class="code-line" style="animation: fadeIn 0.3s forwards 2.0s">
-                                    │   └── <span class="code-string">arduino_connection.md</span>
+                                    │   └── <span class="code-string">arduino_guide.md</span>
                                 </span>
                                 <span class="code-line" style="animation: fadeIn 0.3s forwards 2.1s">
                                     └── <span class="code-keyword">apis/</span>
                                 </span>
                                 <span class="code-line" style="animation: fadeIn 0.3s forwards 2.2s">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="code-string">socket_api.md</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="code-string">socket_api.md</span>
                                 </span>
-                                <span class="code-line" style="animation: fadeIn 0.3s forwards 2.3s">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="code-string">hardware_interface.md</span>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <!-- 주제 태그 모음 -->
-                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                            <h4 class="font-medium text-blue-700 mb-2">주요 문서 주제 예시</h4>
-                            <div>
-                                <span class="md-topic">제품 개요</span>
-                                <span class="md-topic">핵심 기능</span>
-                                <span class="md-topic">기술 사양</span>
-                                <span class="md-topic">설치 방법</span>
-                                <span class="md-topic">API 문서</span>
-                                <span class="md-topic">사용 예제</span>
-                                <span class="md-topic">문제 해결</span>
-                                <span class="md-topic">호환성 정보</span>
-                                <span class="md-topic">업데이트 내역</span>
-                                <span class="md-topic">자주 묻는 질문</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- 핵심 안내 사항 -->
+                    <!-- 핵심 가이드 -->
                     <div class="highlight-box">
-                        <h3 class="text-xl font-bold text-blue-700 flex items-center">
+                        <h3 class="text-lg font-bold text-blue-700 flex items-center mb-3">
                             <i class="fas fa-info-circle text-blue-500 mr-2"></i>
-                            문서 정리 핵심 가이드
+                            핵심 원칙
                         </h3>
-                        <ul class="mt-3 space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>각 MD 파일은 <strong>하나의 명확한 주제</strong>에 집중해야 합니다</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>문서 제목과 내용은 <strong>검색 키워드</strong>를 고려해 작성합니다</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>관련 문서끼리는 <strong>상호 참조 링크</strong>를 추가해 연결합니다</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>메타데이터(태그, 제품명, 버전 등)를 <strong>문서 상단</strong>에 기록합니다</span>
-                            </li>
-                        </ul>
+                        <div class="space-y-2">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-sm"></i>
+                                <span class="text-sm"><strong>각 문서는 주제별로 명확히 나눠야 합니다</strong></span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-sm"></i>
+                                <span class="text-sm">하나의 MD 파일 = 하나의 명확한 주제</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-sm"></i>
+                                <span class="text-sm">검색 키워드를 고려한 제목과 내용 작성</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-sm"></i>
+                                <span class="text-sm">메타데이터(태그, 제품명 등) 문서 상단 기록</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- 페이지 번호 -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-500">
+        <!-- <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-500">
             10 / 14
-        </div>
+        </div> -->
         
         <!-- 로고 -->
-        <div class="logo">
-            WIZnet
-        </div>
+        <!-- <div class="logo">
+            <img src="../wiznet_logo.svg" alt="WIZnet Logo">
+        </div> -->
     </div>
 
     <script>
@@ -522,27 +437,11 @@
             const mdFiles = document.querySelectorAll('.md-file');
             mdFiles.forEach(file => {
                 file.addEventListener('mouseenter', () => {
-                    file.style.transform = 'scale(1.05)';
+                    file.style.transform = 'scale(1.03)';
                 });
                 
                 file.addEventListener('mouseleave', () => {
                     file.style.transform = 'scale(1)';
-                });
-            });
-            
-            // 토픽 태그 호버 효과
-            const mdTopics = document.querySelectorAll('.md-topic');
-            mdTopics.forEach(topic => {
-                topic.addEventListener('mouseenter', () => {
-                    topic.style.transform = 'translateY(-2px)';
-                    topic.style.backgroundColor = '#10b981';
-                    topic.style.color = 'white';
-                });
-                
-                topic.addEventListener('mouseleave', () => {
-                    topic.style.transform = 'translateY(0)';
-                    topic.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
-                    topic.style.color = '#10b981';
                 });
             });
         });

@@ -17,20 +17,20 @@
         }
         .slide-container {
             width: 1280px;
-            min-height: 720px;
+            height: 720px;
             position: relative;
             background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
             overflow: hidden;
         }
         .title {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #0056b3;
             opacity: 0;
             animation: fadeInDown 0.8s forwards;
         }
         .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 500;
             color: #0056b3;
             opacity: 0;
@@ -59,35 +59,28 @@
             position: absolute;
             bottom: 40px;
             right: 40px;
-            width: 80px;
-            height: 80px;
-            background-color: #0056b3;
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.2);
         }
         .curation-flow {
             position: relative;
-            height: 200px;
             opacity: 0;
             animation: fadeIn 0.8s forwards 0.6s;
         }
         .flow-item {
             position: relative;
             display: inline-block;
-            width: 160px;
+            width: 200px;
             vertical-align: top;
         }
         .flow-icon-container {
-            width: 90px;
-            height: 90px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            margin: 0 auto 15px;
+            margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -96,17 +89,17 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .flow-icon-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 86, 179, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 86, 179, 0.2);
         }
         .flow-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
         .flow-arrow {
             position: absolute;
-            top: 45px;
-            right: -15px;
-            width: 30px;
+            top: 35px;
+            right: -20px;
+            width: 40px;
             height: 2px;
             background-color: #0056b3;
         }
@@ -124,7 +117,7 @@
         .emphasis-box {
             background: linear-gradient(135deg, rgba(0, 86, 179, 0.07) 0%, rgba(0, 86, 179, 0.12) 100%);
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             border-left: 5px solid #0056b3;
             opacity: 0;
             animation: fadeInUp 0.8s forwards 1s;
@@ -132,7 +125,7 @@
         .role-card {
             background-color: white;
             border-radius: 12px;
-            padding: 20px;
+            padding: 16px;
             box-shadow: 0 8px 24px rgba(0, 86, 179, 0.1);
             transition: all 0.3s ease;
             opacity: 0;
@@ -140,111 +133,26 @@
             height: 100%;
         }
         .role-card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+            transform: translateY(-3px) !important;
+            box-shadow: 0 12px 25px rgba(0, 86, 179, 0.15);
         }
         .role-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
         }
-        .expert-visual {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .warning-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.1) 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 5px solid #ef4444;
             opacity: 0;
-            animation: fadeIn 0.8s forwards 1.2s;
-        }
-        .expert-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: rgba(0, 86, 179, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-        }
-        .expert-icon i {
-            font-size: 4rem;
-            color: #0056b3;
-        }
-        .expert-pulse {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: rgba(0, 86, 179, 0.1);
-            animation: pulse 2s infinite;
-        }
-        .expert-item {
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-        .expert-item:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(0, 86, 179, 0.25);
-        }
-        .expert-item i {
-            font-size: 2rem;
-            margin-bottom: 5px;
-        }
-        .expert-item:nth-child(1) {
-            top: -110px;
-            left: calc(50% - 45px);
-        }
-        .expert-item:nth-child(2) {
-            top: calc(50% - 45px);
-            left: -110px;
-        }
-        .expert-item:nth-child(3) {
-            top: calc(50% - 45px);
-            right: -110px;
-        }
-        .expert-item:nth-child(4) {
-            bottom: -110px;
-            left: calc(50% - 45px);
-        }
-        .expert-line {
-            position: absolute;
-            width: 80px;
-            height: 2px;
-            background-color: rgba(0, 86, 179, 0.3);
-            z-index: 1;
-        }
-        .expert-line-1 {
-            top: calc(50% - 60px);
-            left: calc(50% - 40px);
-            transform: rotate(-90deg);
-        }
-        .expert-line-2 {
-            top: calc(50%);
-            left: calc(50% - 120px);
-        }
-        .expert-line-3 {
-            top: calc(50%);
-            right: calc(50% - 120px);
-        }
-        .expert-line-4 {
-            bottom: calc(50% - 60px);
-            left: calc(50% - 40px);
-            transform: rotate(90deg);
+            animation: fadeInUp 0.8s forwards 1.4s;
         }
 
         @keyframes fadeInDown {
@@ -275,20 +183,6 @@
                 transform: translateY(0);
             }
         }
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: scale(1.5);
-                opacity: 0.1;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-        }
     </style>
 </head>
 <body>
@@ -297,43 +191,34 @@
         <div class="grid-pattern"></div>
         
         <!-- 회로 라인 장식 -->
-        <div class="circuit-line" style="top: 180px; left: 0; width: 25%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 450px; right: 0; width: 30%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 0; left: 300px; width: 3px; height: 15%;"></div>
-        <div class="circuit-line" style="bottom: 0; right: 200px; width: 3px; height: 20%;"></div>
+        <div class="circuit-line" style="top: 160px; left: 0; width: 25%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 400px; right: 0; width: 30%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 0; left: 300px; width: 2px; height: 15%;"></div>
+        <div class="circuit-line" style="bottom: 0; right: 200px; width: 2px; height: 20%;"></div>
         
         <!-- 메인 콘텐츠 -->
-        <div class="content-wrapper w-full px-14 py-10">
+        <div class="content-wrapper w-full px-12 py-8 h-full">
             <h1 class="title mb-2">여러분의 역할: UCC 큐레이션</h1>
-            <p class="subtitle mb-8">AI 성공의 핵심은 고품질 데이터에 있습니다</p>
+            <p class="subtitle mb-6">데이터 큐레이션은 여러분의 적극적인 참여가 필수입니다</p>
             
             <!-- 큐레이션 흐름 시각화 -->
-            <div class="curation-flow text-center mb-8">
+            <div class="curation-flow text-center mb-6">
                 <div class="flow-item">
                     <div class="flow-icon-container" style="background-color: rgba(239, 68, 68, 0.1); border: 2px solid rgba(239, 68, 68, 0.3);">
                         <i class="fas fa-database flow-icon" style="color: #ef4444;"></i>
                     </div>
                     <div class="flow-arrow"></div>
-                    <p class="font-medium text-gray-700">미가공 UCC 데이터</p>
-                    <p class="text-xs text-gray-500">콘텐츠 노이즈 포함</p>
+                    <p class="font-medium text-gray-700">검색된 UCC</p>
+                    <p class="text-sm text-gray-500">노이즈 포함</p>
                 </div>
                 
                 <div class="flow-item">
                     <div class="flow-icon-container" style="background-color: rgba(245, 158, 11, 0.1); border: 2px solid rgba(245, 158, 11, 0.3);">
-                        <i class="fas fa-filter flow-icon" style="color: #f59e0b;"></i>
+                        <i class="fas fa-user-check flow-icon" style="color: #f59e0b;"></i>
                     </div>
                     <div class="flow-arrow"></div>
-                    <p class="font-medium text-gray-700">전문가 큐레이션</p>
-                    <p class="text-xs text-gray-500">여러분의 필터링</p>
-                </div>
-                
-                <div class="flow-item">
-                    <div class="flow-icon-container" style="background-color: rgba(16, 185, 129, 0.1); border: 2px solid rgba(16, 185, 129, 0.3);">
-                        <i class="fas fa-check-circle flow-icon" style="color: #10b981;"></i>
-                    </div>
-                    <div class="flow-arrow"></div>
-                    <p class="font-medium text-gray-700">고품질 데이터</p>
-                    <p class="text-xs text-gray-500">가치 있는 콘텐츠</p>
+                    <p class="font-medium text-gray-700">여러분의 큐레이션</p>
+                    <p class="text-sm text-gray-500">노이즈 제거 & 선별</p>
                 </div>
                 
                 <div class="flow-item">
@@ -341,104 +226,69 @@
                         <i class="fas fa-robot flow-icon" style="color: #0056b3;"></i>
                     </div>
                     <p class="font-medium text-gray-700">똑똑한 AI Agent</p>
-                    <p class="text-xs text-gray-500">정확한 응답 생성</p>
+                    <p class="text-sm text-gray-500">정확한 응답 생성</p>
                 </div>
             </div>
             
-            <!-- 메인 그리드 콘텐츠 -->
-            <div class="grid grid-cols-2 gap-6">
-                <!-- 왼쪽: 전문가 시각화 -->
-                <div class="expert-visual">
-                    <!-- 중앙 아이콘 -->
-                    <div class="expert-pulse"></div>
-                    <div class="expert-icon">
-                        <i class="fas fa-brain"></i>
+            <!-- 메인 콘텐츠 그리드 -->
+            <div class="grid grid-cols-2 gap-6 h-80">
+                <!-- 왼쪽: 큐레이션 작업 내용 -->
+                <div class="flex flex-col space-y-4">
+                    <!-- 주요 역할 -->
+                    <div class="emphasis-box">
+                        <h3 class="text-lg font-bold text-blue-700 mb-2">
+                            <i class="fas fa-tasks text-blue-500 mr-2"></i>
+                            여러분이 해주셔야 할 큐레이션 작업
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-filter text-red-500 mr-3"></i>
+                                <span class="text-gray-700"><strong>노이즈 걸러내기:</strong> 관련성 낮은 콘텐츠 제거</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-3"></i>
+                                <span class="text-gray-700"><strong>가치 있는 콘텐츠 선별:</strong> 제품·기술 활용 사례만</span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <!-- 연결 라인 -->
-                    <div class="expert-line expert-line-1"></div>
-                    <div class="expert-line expert-line-2"></div>
-                    <div class="expert-line expert-line-3"></div>
-                    <div class="expert-line expert-line-4"></div>
-                    
-                    <!-- 전문 지식 아이템 -->
-                    <div class="expert-item" style="color: #ef4444;">
-                        <i class="fas fa-microchip"></i>
-                        <span class="text-xs">제품 지식</span>
-                    </div>
-                    <div class="expert-item" style="color: #f59e0b;">
-                        <i class="fas fa-code"></i>
-                        <span class="text-xs">기술 이해</span>
-                    </div>
-                    <div class="expert-item" style="color: #10b981;">
-                        <i class="fas fa-clipboard-check"></i>
-                        <span class="text-xs">품질 판단</span>
-                    </div>
-                    <div class="expert-item" style="color: #0056b3;">
-                        <i class="fas fa-industry"></i>
-                        <span class="text-xs">산업 경험</span>
+                    <!-- 전문성의 중요성 -->
+                    <div class="role-card" style="animation: fadeInUp 0.5s forwards 1.2s;">
+                        <div class="role-icon mx-auto" style="background-color: rgba(0, 86, 179, 0.1); color: #0056b3;">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="font-bold mb-2 text-center">전문가 판단의 필요성</h4>
+                        <p class="text-sm text-gray-600 text-center">
+                            WIZnet 제품과 기술을 가장 잘 아시는<br>
+                            <strong class="text-blue-700">여러분의 판단이 꼭 필요</strong>합니다
+                        </p>
                     </div>
                 </div>
                 
-                <!-- 오른쪽: 큐레이션의 중요성 -->
+                <!-- 오른쪽: 잘못된 데이터의 위험성 -->
                 <div class="flex flex-col space-y-4">
-                    <!-- 주요 메시지 -->
-                    <div class="emphasis-box">
-                        <h3 class="text-xl font-bold text-blue-700">
-                            <i class="fas fa-exclamation-circle text-red-500 mr-2"></i>
-                            데이터 큐레이션의 필수 요소
+                    <!-- 경고 메시지 -->
+                    <div class="warning-box">
+                        <h3 class="text-lg font-bold text-red-700 mb-3">
+                            <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                            잘못된 데이터의 위험
                         </h3>
-                        <p class="text-gray-700 mt-2">
-                            여러분의 적극적인 참여가 WIZnet AI의 품질을 결정합니다
-                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-times-circle text-red-500 mr-3"></i>
+                                <span class="text-gray-700">Agent가 <strong>오답을 생성</strong></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-search-minus text-red-500 mr-3"></i>
+                                <span class="text-gray-700">고객이 원하는 <strong>정보를 찾지 못함</strong></span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <!-- 중요성 카드들 -->
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="role-card" style="animation: fadeInUp 0.5s forwards 1.2s;">
-                            <div class="role-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444;">
-                                <i class="fas fa-search-minus"></i>
-                            </div>
-                            <h4 class="font-bold mb-1">노이즈 제거</h4>
-                            <p class="text-sm text-gray-600">관련성 낮은 콘텐츠 필터링</p>
-                        </div>
-                        
-                        <div class="role-card" style="animation: fadeInUp 0.5s forwards 1.4s;">
-                            <div class="role-icon" style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b;">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4 class="font-bold mb-1">가치 있는 콘텐츠</h4>
-                            <p class="text-sm text-gray-600">제품·기술 활용 사례 선별</p>
-                        </div>
-                        
-                        <div class="role-card" style="animation: fadeInUp 0.5s forwards 1.6s; grid-column: span 2;">
-                            <div class="role-icon mx-auto" style="background-color: rgba(0, 86, 179, 0.1); color: #0056b3;">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </div>
-                            <h4 class="font-bold mb-1 text-center">부정확한 데이터의 위험</h4>
-                            <div class="flex justify-center space-x-4 mt-2">
-                                <div class="text-center">
-                                    <i class="fas fa-times-circle text-red-500 text-xl mb-1"></i>
-                                    <p class="text-xs text-gray-600">Agent 오답 생성</p>
-                                </div>
-                                <div class="text-center">
-                                    <i class="fas fa-question-circle text-red-500 text-xl mb-1"></i>
-                                    <p class="text-xs text-gray-600">필요 정보 미발견</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                         <!-- 데이터 품질의 중요성 -->                     <div class="grid grid-cols-2 gap-3">                         <div class="role-card" style="animation: fadeInUp 0.5s forwards 1.6s;">                             <div class="role-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;">                                 <i class="fas fa-check-double"></i>                             </div>                             <h4 class="font-bold mb-1 text-sm">품질 보장 ✨</h4>                             <p class="text-xs text-gray-600">정확한 정보만 선별</p>                         </div>                                                  <div class="role-card" style="animation: fadeInUp 0.5s forwards 1.8s;">                             <div class="role-icon" style="background-color: rgba(0, 86, 179, 0.1); color: #0056b3;">                                 <i class="fas fa-chart-line"></i>                             </div>                             <h4 class="font-bold mb-1 text-sm">정확성 향상 📈</h4>                             <p class="text-xs text-gray-600">AI 응답 품질 개선</p>                         </div>                     </div>                                          <!-- 핵심 메시지 -->                     <div class="mt-4 opacity-0" style="animation: fadeIn 0.8s forwards 2s;">                         <div class="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3">                             <p class="text-base font-bold text-blue-800 text-center">                                 <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>                                 고품질 AI의 핵심은 <span class="text-blue-900">여러분의 전문적인 큐레이션</span>에 있습니다                             </p>                         </div>                     </div>
                 </div>
             </div>
-            
-            <!-- 하단 핵심 메시지 -->
-            <div class="mt-6 text-center opacity-0" style="animation: fadeIn 0.8s forwards 1.8s;">
-                <p class="text-lg font-bold text-blue-800">
-                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
-                    WIZnet 제품과 기술을 가장 잘 아는 여러분의 판단이 꼭 필요합니다
-                </p>
-            </div>
-        </div>
+                    </div>
         
         <!-- 페이지 번호 -->
         <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-500">
@@ -447,7 +297,7 @@
         
         <!-- 로고 -->
         <div class="logo">
-            WIZnet
+            <img src="../wiznet_logo.svg" alt="WIZnet Logo">
         </div>
     </div>
 
@@ -466,7 +316,7 @@
             const flowIcons = document.querySelectorAll('.flow-icon-container');
             flowIcons.forEach((icon, index) => {
                 icon.addEventListener('mouseenter', () => {
-                    icon.style.transform = 'translateY(-10px)';
+                    icon.style.transform = 'translateY(-5px)';
                 });
                 
                 icon.addEventListener('mouseleave', () => {

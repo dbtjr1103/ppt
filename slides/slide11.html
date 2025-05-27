@@ -17,13 +17,13 @@
         }
         .slide-container {
             width: 1280px;
-            min-height: 720px;
+            height: 720px;
             position: relative;
             background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
             overflow: hidden;
         }
         .title {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #0056b3;
             opacity: 0;
@@ -52,17 +52,11 @@
             position: absolute;
             bottom: 40px;
             right: 40px;
-            width: 80px;
-            height: 80px;
-            background-color: #0056b3;
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.2);
         }
         .source-card {
             background-color: white;
@@ -72,19 +66,20 @@
             opacity: 0;
             position: relative;
             overflow: hidden;
+            height: 100%;
         }
         .source-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 86, 179, 0.15);
         }
         .source-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
             transition: transform 0.3s ease;
         }
@@ -96,23 +91,24 @@
             border-radius: 8px;
             border-left: 4px solid;
             padding: 12px 16px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             transition: all 0.3s ease;
             opacity: 0;
             overflow: hidden;
         }
         .faq-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.15);
+            transform: translateX(3px);
+            box-shadow: 0 3px 10px rgba(0, 86, 179, 0.1);
         }
         .faq-question {
             font-weight: 500;
             display: flex;
             align-items: center;
             cursor: pointer;
+            font-size: 0.9rem;
         }
         .faq-answer {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #6b7280;
             max-height: 0;
             overflow: hidden;
@@ -120,64 +116,25 @@
         }
         .faq-open .faq-answer {
             max-height: 100px;
-            margin-top: 8px;
-            padding-top: 8px;
+            margin-top: 6px;
+            padding-top: 6px;
             border-top: 1px dashed #e5e7eb;
-        }
-        .process-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #0056b3;
-            padding: 0 15px;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 0.8s;
-        }
-        .process-step {
-            text-align: center;
-            opacity: 0;
-        }
-        .step-number {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: #0056b3;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin: 0 auto 10px;
-        }
-        .best-practice {
-            display: flex;
-            align-items: flex-start;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            opacity: 0;
-        }
-        .best-practice:hover {
-            background-color: rgba(0, 86, 179, 0.05);
-        }
-        .practice-icon {
-            margin-right: 12px;
-            flex-shrink: 0;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .faq-pill {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
             font-weight: 500;
-            margin-left: 10px;
+            margin-left: auto;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 86, 179, 0.05) 0%, rgba(0, 86, 179, 0.1) 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #0056b3;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 1.2s;
         }
 
         @keyframes fadeInDown {
@@ -208,17 +165,6 @@
                 transform: translateY(0);
             }
         }
-        @keyframes floatAnimation {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
     </style>
 </head>
 <body>
@@ -227,48 +173,19 @@
         <div class="grid-pattern"></div>
         
         <!-- 회로 라인 장식 -->
-        <div class="circuit-line" style="top: 180px; left: 0; width: 25%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 450px; right: 0; width: 30%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 0; left: 300px; width: 3px; height: 15%;"></div>
-        <div class="circuit-line" style="bottom: 0; right: 200px; width: 3px; height: 20%;"></div>
+        <div class="circuit-line" style="top: 160px; left: 0; width: 25%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 400px; right: 0; width: 30%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 0; left: 300px; width: 2px; height: 15%;"></div>
+        <div class="circuit-line" style="bottom: 0; right: 200px; width: 2px; height: 20%;"></div>
         
         <!-- 메인 콘텐츠 -->
-        <div class="content-wrapper w-full px-14 py-10">
+        <div class="content-wrapper w-full px-12 py-8 h-full">
             <h1 class="title mb-8">FAQ 정리</h1>
             
-            <!-- FAQ 생성 프로세스 -->
-            <div class="flex items-center justify-center mb-10">
-                <div class="process-step" style="animation: fadeIn 0.8s forwards 0.4s;">
-                    <div class="step-number">1</div>
-                    <p class="font-medium">데이터 수집</p>
-                </div>
-                <div class="process-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="process-step" style="animation: fadeIn 0.8s forwards 0.6s;">
-                    <div class="step-number">2</div>
-                    <p class="font-medium">질문 분류</p>
-                </div>
-                <div class="process-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="process-step" style="animation: fadeIn 0.8s forwards 0.8s;">
-                    <div class="step-number">3</div>
-                    <p class="font-medium">답변 작성</p>
-                </div>
-                <div class="process-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="process-step" style="animation: fadeIn 0.8s forwards 1s;">
-                    <div class="step-number">4</div>
-                    <p class="font-medium">FAQ 등록</p>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-8">
-                <!-- 왼쪽: 데이터 소스 -->
+            <div class="grid grid-cols-2 gap-8 h-full">
+                <!-- 왼쪽: FAQ 데이터 출처 -->
                 <div>
-                    <h3 class="text-xl font-bold text-blue-700 mb-4">
+                    <h3 class="text-xl font-bold text-blue-700 mb-6">
                         <i class="fas fa-database mr-2"></i>
                         FAQ 데이터 출처
                     </h3>
@@ -285,17 +202,8 @@
                                     <p class="text-sm text-gray-500">고객 실시간 문의 채널</p>
                                 </div>
                             </div>
-                            <div class="mt-4 bg-blue-50 p-3 rounded-md">
-                                <div class="text-sm">
-                                    <div class="flex items-start mb-2">
-                                        <i class="fas fa-quote-left text-blue-400 mt-1 mr-2"></i>
-                                        <div class="text-gray-700">"W5500 호환 보드를 아두이노와 연결하는 방법이 궁금합니다."</div>
-                                    </div>
-                                    <div class="flex items-start">
-                                        <i class="fas fa-quote-left text-blue-400 mt-1 mr-2"></i>
-                                        <div class="text-gray-700">"이더넷 통신 시 패킷 손실 문제가 있는데 해결 방법이 있을까요?"</div>
-                                    </div>
-                                </div>
+                            <div class="mt-3 text-xs text-gray-600">
+                                실시간 고객 지원 채팅을 통해 수집된 문의사항을 분석하여 FAQ로 활용
                             </div>
                         </div>
                         
@@ -310,17 +218,8 @@
                                     <p class="text-sm text-gray-500">사용자 커뮤니티 게시판</p>
                                 </div>
                             </div>
-                            <div class="mt-4 bg-purple-50 p-3 rounded-md">
-                                <div class="text-sm">
-                                    <div class="flex items-start mb-2">
-                                        <i class="fas fa-quote-left text-purple-400 mt-1 mr-2"></i>
-                                        <div class="text-gray-700">"W5500 칩을 사용한 IoT 프로젝트에서 전력 소비를 줄이는 방법은?"</div>
-                                    </div>
-                                    <div class="flex items-start">
-                                        <i class="fas fa-quote-left text-purple-400 mt-1 mr-2"></i>
-                                        <div class="text-gray-700">"W55RP20의 MQTT 프로토콜 지원 여부가 궁금합니다."</div>
-                                    </div>
-                                </div>
+                            <div class="mt-3 text-xs text-gray-600">
+                                개발자 커뮤니티에서 자주 묻는 기술적 질문들을 FAQ로 정리
                             </div>
                         </div>
                         
@@ -335,42 +234,33 @@
                                     <p class="text-sm text-gray-500">AI 응답 분석 및 데이터</p>
                                 </div>
                             </div>
-                            <div class="mt-4 bg-green-50 p-3 rounded-md">
-                                <div class="text-sm">
-                                    <div class="flex items-start mb-2">
-                                        <i class="fas fa-quote-left text-green-400 mt-1 mr-2"></i>
-                                        <div class="text-gray-700">"펌웨어 업데이트 방법이 어떻게 되나요?"</div>
-                                    </div>
-                                    <div class="flex items-start">
-                                        <i class="fas fa-quote-left text-green-400 mt-1 mr-2"></i>
-                                        <div class="text-gray-700">"W5500에서 DNS 서버 설정하는 예제 코드가 필요합니다."</div>
-                                    </div>
-                                </div>
+                            <div class="mt-3 text-xs text-gray-600">
+                                AI 챗봇과의 대화 로그를 분석하여 빈도 높은 질문을 FAQ에 반영
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 오른쪽: FAQ 관리 및 예시 -->
+                <!-- 오른쪽: FAQ 관리 -->
                 <div>
-                    <h3 class="text-xl font-bold text-blue-700 mb-4">
+                    <h3 class="text-xl font-bold text-blue-700 mb-6">
                         <i class="fas fa-clipboard-list mr-2"></i>
-                        FAQ 관리 및 베스트 프랙티스
+                        FAQ 관리
                     </h3>
                     
                     <!-- FAQ 예시 -->
-                    <div class="mb-6">
-                        <h4 class="font-medium text-gray-700 mb-3">FAQ 예시:</h4>
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-700 mb-3 text-sm">주요 FAQ 예시:</h4>
                         
                         <!-- FAQ 항목 1 -->
                         <div class="faq-item" style="border-left-color: #3B82F6; animation: fadeIn 0.5s forwards 0.8s;">
                             <div class="faq-question">
                                 <i class="fas fa-caret-right text-blue-500 mr-2"></i>
                                 <span>W5500을 Arduino와 연결하는 방법은?</span>
-                                <span class="faq-pill bg-blue-100 text-blue-700 ml-auto">하드웨어</span>
+                                <span class="faq-pill bg-blue-100 text-blue-700">하드웨어</span>
                             </div>
                             <div class="faq-answer">
-                                SPI 인터페이스를 통해 연결하며, CS, MOSI, MISO, SCK 핀을 Arduino의 해당 핀에 연결합니다. Ethernet 라이브러리 사용을 권장합니다.
+                                SPI 인터페이스를 통해 연결하며, CS, MOSI, MISO, SCK 핀을 Arduino의 해당 핀에 연결합니다.
                             </div>
                         </div>
                         
@@ -379,10 +269,10 @@
                             <div class="faq-question">
                                 <i class="fas fa-caret-right text-green-500 mr-2"></i>
                                 <span>W55RP20에서 MQTT를 사용할 수 있나요?</span>
-                                <span class="faq-pill bg-green-100 text-green-700 ml-auto">소프트웨어</span>
+                                <span class="faq-pill bg-green-100 text-green-700">소프트웨어</span>
                             </div>
                             <div class="faq-answer">
-                                네, W55RP20은 MQTT 프로토콜을 지원합니다. 내장된 라이브러리를 사용하거나 Arduino 클라이언트 라이브러리로 구현할 수 있습니다.
+                                네, W55RP20은 MQTT 프로토콜을 지원합니다. 내장된 라이브러리를 사용할 수 있습니다.
                             </div>
                         </div>
                         
@@ -391,45 +281,30 @@
                             <div class="faq-question">
                                 <i class="fas fa-caret-right text-yellow-500 mr-2"></i>
                                 <span>펌웨어 업데이트는 어떻게 하나요?</span>
-                                <span class="faq-pill bg-yellow-100 text-yellow-700 ml-auto">유지보수</span>
+                                <span class="faq-pill bg-yellow-100 text-yellow-700">유지보수</span>
                             </div>
                             <div class="faq-answer">
-                                공식 웹사이트에서 최신 펌웨어를 다운로드하고 제공된 업데이터 툴을 사용하여 USB 또는 이더넷을 통해 업데이트할 수 있습니다.
+                                공식 웹사이트에서 최신 펌웨어를 다운로드하고 제공된 업데이터 툴을 사용합니다.
                             </div>
                         </div>
                     </div>
                     
-                    <!-- 베스트 프랙티스 -->
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h4 class="font-medium text-blue-700 mb-3">FAQ 관리 베스트 프랙티스</h4>
-                        
-                        <div class="best-practice" style="animation: fadeIn 0.5s forwards 1.4s;">
-                            <div class="practice-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #EF4444;">
-                                <i class="fas fa-tags"></i>
+                    <!-- 관리 중요성 강조 -->
+                    <div class="highlight-box">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-lightbulb text-blue-600 text-xl mr-3"></i>
                             </div>
                             <div>
-                                <p class="font-medium text-gray-700">카테고리 분류</p>
-                                <p class="text-sm text-gray-500">하드웨어, 소프트웨어, 네트워킹 등 주제별 분류</p>
-                            </div>
-                        </div>
-                        
-                        <div class="best-practice" style="animation: fadeIn 0.5s forwards 1.6s;">
-                            <div class="practice-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10B981;">
-                                <i class="fas fa-sync-alt"></i>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-700">정기적 업데이트</p>
-                                <p class="text-sm text-gray-500">새로운 질문과 업데이트된 답변으로 FAQ 지속 관리</p>
-                            </div>
-                        </div>
-                        
-                        <div class="best-practice" style="animation: fadeIn 0.5s forwards 1.8s;">
-                            <div class="practice-icon" style="background-color: rgba(79, 70, 229, 0.1); color: #4F46E5;">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-700">검색 최적화</p>
-                                <p class="text-sm text-gray-500">검색 키워드와 메타데이터를 포함하여 AI 검색 정확도 향상</p>
+                                <h4 class="font-bold text-blue-700 mb-2">FAQ 관리의 중요성</h4>
+                                <p class="text-sm text-gray-700 leading-relaxed">
+                                    <strong>자주 묻는 질문과 답변을 정리해 관리</strong>함으로써 고객 만족도를 향상시키고, 
+                                    지원팀의 업무 효율성을 높일 수 있습니다.
+                                </p>
+                                <div class="mt-3 flex items-center text-xs text-blue-600">
+                                    <i class="fas fa-check-circle mr-2"></i>
+                                    <span>체계적인 분류와 정기적 업데이트가 핵심</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -444,7 +319,7 @@
         
         <!-- 로고 -->
         <div class="logo">
-            WIZnet
+            <img src="../wiznet_logo.svg" alt="WIZnet Logo">
         </div>
     </div>
 
@@ -470,14 +345,6 @@
                 });
             });
             
-            // 프로세스 스텝 애니메이션
-            const processSteps = document.querySelectorAll('.process-step');
-            processSteps.forEach(step => {
-                setTimeout(() => {
-                    step.style.animation = 'floatAnimation 3s ease-in-out infinite';
-                }, 1500);
-            });
-            
             // 소스 카드 애니메이션
             const sourceCards = document.querySelectorAll('.source-card');
             sourceCards.forEach(card => {
@@ -489,20 +356,6 @@
                 card.addEventListener('mouseleave', () => {
                     const icon = card.querySelector('.source-icon');
                     icon.style.transform = 'scale(1) rotate(0)';
-                });
-            });
-            
-            // 베스트 프랙티스 애니메이션
-            const bestPractices = document.querySelectorAll('.best-practice');
-            bestPractices.forEach(practice => {
-                practice.addEventListener('mouseenter', () => {
-                    practice.style.backgroundColor = 'rgba(0, 86, 179, 0.05)';
-                    practice.style.transform = 'translateX(5px)';
-                });
-                
-                practice.addEventListener('mouseleave', () => {
-                    practice.style.backgroundColor = 'transparent';
-                    practice.style.transform = 'translateX(0)';
                 });
             });
         });

@@ -22,13 +22,7 @@
             background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
             overflow: hidden;
         }
-        .title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #0056b3;
-            opacity: 0;
-            animation: fadeInDown 0.8s forwards;
-        }
+                .title {            font-size: 2.2rem;            font-weight: 700;            color: #0056b3;            opacity: 0;            animation: fadeInDown 0.8s forwards;        }
         .grid-pattern {
             position: absolute;
             top: 0;
@@ -50,88 +44,93 @@
         }
         .logo {
             position: absolute;
-            bottom: 40px;
-            right: 40px;
-            width: 80px;
-            height: 80px;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .agent-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 8px 20px rgba(0, 86, 179, 0.1);
-            opacity: 0;
-            transition: all 0.3s ease;
+                .agent-box {            background: white;            border-radius: 10px;            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);            padding: 12px;            margin: 6px;            transition: all 0.3s ease;            opacity: 0;            transform: translateY(20px);            border: 2px solid transparent;        }
+        .agent-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+                .super-agent {            background: linear-gradient(135deg, #ffffff 0%, #e8f4fd 100%);            border: 3px solid #0056b3;            box-shadow: 0 4px 20px rgba(0, 86, 179, 0.2);            transform: scale(1.05);        }
+        .super-agent:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+        .input-agent {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            border: 2px solid #3b82f6;
+        }
+        .specialist-agent {
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            border: 2px solid #e5e7eb;
+        }
+                .agent-icon {            font-size: 1.6rem;            margin-bottom: 8px;        }        .super-icon {            font-size: 2rem;            margin-bottom: 10px;        }
+                .agent-title {            font-weight: 700;            font-size: 0.9rem;            margin-bottom: 4px;        }        .super-title {            font-weight: 800;            font-size: 1rem;            margin-bottom: 6px;            color: #0056b3;        }
+                .agent-desc {            font-size: 0.75rem;            color: #555;            line-height: 1.3;        }        .super-desc {            font-size: 0.8rem;            color: #0056b3;            line-height: 1.3;            font-weight: 600;        }
+        .arrow {
             position: relative;
-            z-index: 2;
-        }
-        .agent-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.2);
-        }
-        .agent-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin: 0 auto 10px;
-            transition: transform 0.3s ease;
-        }
-        .agent-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-align: center;
-            margin-bottom: 5px;
-        }
-        .agent-desc {
-            font-size: 0.9rem;
-            color: #666;
-            text-align: center;
-        }
-        .agent-connector {
-            position: absolute;
-            background-color: rgba(0, 86, 179, 0.5);
-            z-index: 1;
-            opacity: 0;
-        }
-        .agent-line {
-            position: relative;
-        }
-        .agent-arrow {
-            position: absolute;
             width: 0;
             height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 12px solid rgba(0, 86, 179, 0.5);
-            transform-origin: center bottom;
-        }
-        .database-background {
-            position: absolute;
-            bottom: 10px;
-            right: 130px;
-            width: 260px;
-            height: 100px;
-            background-color: rgba(0, 86, 179, 0.05);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-weight: 500;
-            font-size: 1rem;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #0056b3;
             opacity: 0;
-            animation: fadeIn 0.8s forwards 2.2s;
-            border: 1px dashed rgba(0, 86, 179, 0.2);
+            animation: fadeIn 1s forwards 2s;
+            margin: 12px auto;
         }
-        
-        /* 애니메이션 정의 */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(90deg, #0056b3, #3b82f6);
+            height: 3px;
+            opacity: 0;
+            animation: expandLine 1s forwards;
+            border-radius: 2px;
+        }
+        .connection-line::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid #3b82f6;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        .rag-db {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 2px solid #64748b;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards 3s;
+        }
+        .rag-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 4px;
+        }
+        .rag-desc {
+            font-size: 0.75rem;
+            color: #64748b;
+            line-height: 1.3;
+        }
+        .section-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -143,34 +142,17 @@
             }
         }
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
             to {
                 opacity: 1;
             }
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        @keyframes slideDown {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        @keyframes drawLine {
-            from {
-                height: 0;
-                opacity: 0;
-            }
-            to {
-                height: 100%;
-                opacity: 1;
-            }
-        }
-        @keyframes drawHorizontalLine {
+        @keyframes expandLine {
             from {
                 width: 0;
                 opacity: 0;
@@ -180,172 +162,80 @@
                 opacity: 1;
             }
         }
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.08);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
+        /* 각 에이전트 애니메이션 시간 지연 */
+        .delay-1 { animation: slideDown 0.8s forwards 1.2s; }
+        .delay-2 { animation: slideDown 0.8s forwards 1.4s; }
+        .delay-3 { animation: slideDown 0.8s forwards 1.6s; }
+        .delay-4 { animation: slideDown 0.8s forwards 2.2s; }
+        .delay-5 { animation: slideDown 0.8s forwards 2.4s; }
+        .delay-6 { animation: slideDown 0.8s forwards 2.6s; }
+        .delay-7 { animation: slideDown 0.8s forwards 2.8s; }
+        .delay-8 { animation: slideDown 0.8s forwards 3.2s; }
     </style>
 </head>
 <body>
-    <div class="slide-container flex flex-col">
+    <div class="slide-container flex flex-col justify-start items-center">
         <!-- 배경 패턴 -->
         <div class="grid-pattern"></div>
         
         <!-- 회로 라인 장식 -->
-        <div class="circuit-line" style="top: 150px; left: 0; width: 25%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 550px; right: 0; width: 20%; height: 3px;"></div>
-        <div class="circuit-line" style="top: 0; left: 350px; width: 3px; height: 10%;"></div>
-        <div class="circuit-line" style="bottom: 0; right: 250px; width: 3px; height: 15%;"></div>
+        <div class="circuit-line" style="top: 100px; left: 0; width: 25%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 450px; right: 0; width: 20%; height: 2px;"></div>
+        <div class="circuit-line" style="top: 0; left: 200px; width: 2px; height: 15%;"></div>
+        <div class="circuit-line" style="bottom: 0; right: 300px; width: 2px; height: 12%;"></div>
         
-        <!-- 메인 콘텐츠 -->
-        <div class="content-wrapper w-full px-12 py-10">
-            <h1 class="title mb-6 ml-4">에이전트 협업 구조</h1>
+                <!-- 메인 콘텐츠 -->        <div class="content-wrapper w-full px-6 py-3">            <h1 class="title mb-4 text-center">에이전트 협업 구조</h1>
             
-            <!-- 에이전트 흐름도 -->
-            <div class="relative flex flex-col items-center">
-                <!-- 첫 번째 줄: 사용자 입력 -->
-                <div class="agent-card mt-2 w-64" style="animation: fadeInDown 0.8s forwards 0.3s; border-top: 4px solid #FF6B6B;">
-                    <div class="agent-icon" style="background-color: rgba(255, 107, 107, 0.2); color: #FF6B6B;">
-                        <i class="fas fa-user-alt"></i>
-                    </div>
-                    <div class="agent-title text-red-500">User Input</div>
-                    <div class="agent-desc">고객 질문 접수</div>
-                </div>
-                
-                <!-- 연결선 1 -->
-                <div class="agent-connector h-12 w-2" style="top: 156px; animation: drawLine 0.5s forwards 0.6s;"></div>
-                <div class="agent-arrow" style="top: 167px; animation: fadeIn 0.3s forwards 1.1s;"></div>
-                
-                <!-- 두 번째 줄: Preprocessing Agent -->
-                <div class="agent-card mt-6 w-64" style="animation: fadeIn 0.8s forwards 0.8s; border-left: 4px solid #36B9CC;">
-                    <div class="agent-icon" style="background-color: rgba(54, 185, 204, 0.2); color: #36B9CC;">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="agent-title text-teal-500">Preprocessing Agent</div>
-                    <div class="agent-desc">질문 의도 파악 및 정리</div>
-                </div>
-                
-                <!-- 연결선 2 -->
-                <div class="agent-connector h-12 w-2" style="top: 262px; animation: drawLine 0.5s forwards 1.1s;"></div>
-                <div class="agent-arrow" style="top: 273px; animation: fadeIn 0.3s forwards 1.6s;"></div>
-                
-                <!-- 세 번째 줄: GateKeeper Agent -->
-                <div class="agent-card mt-6 w-72" style="animation: fadeIn 0.8s forwards 1.3s; border-right: 4px solid #F6C23E;">
-                    <div class="agent-icon" style="background-color: rgba(246, 194, 62, 0.2); color: #F6C23E;">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="agent-title text-yellow-600">GateKeeper Agent</div>
-                    <div class="agent-desc">질문 유형 판단 후 적합한 전문 Agent로 연결</div>
-                </div>
-                
-                <!-- 연결선 3 (분기) -->
-                <div class="flex justify-center relative w-full">
-                    <div class="agent-connector h-14 w-2" style="top: 370px; left: 640px; animation: drawLine 0.5s forwards 1.6s;"></div>
-                    <!-- 수평선 -->
-                    <div class="agent-connector h-2 w-3/4" style="top: 383px; left: 322px; animation: drawHorizontalLine 0.8s forwards 1.9s;"></div>
-                </div>
-                
-                <!-- 네 번째 줄: Specialized Agents -->
-                <div class="grid grid-cols-4 gap-6 mt-16">
-                    <!-- Docs-QA Agent -->
-                    <div class="agent-card" style="animation: fadeInUp 0.8s forwards 2.0s; border-bottom: 4px solid #4E73DF;">
-                        <div class="agent-icon" style="background-color: rgba(78, 115, 223, 0.2); color: #4E73DF;">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <div class="agent-title text-blue-600">Docs-QA Agent</div>
-                        <div class="agent-desc">제품 문서·매뉴얼 질의응답</div>
-                    </div>
+                         <!-- 전체 구조 -->             <div class="flex gap-4">                 <!-- 왼쪽: 입력 처리 플로우 -->                 <div class="flex flex-col items-center" style="width: 250px;">                     <div class="section-label">입력 처리</div>
                     
-                    <!-- UCC Recommend Agent -->
-                    <div class="agent-card" style="animation: fadeInUp 0.8s forwards 2.1s; border-bottom: 4px solid #1CC88A;">
-                        <div class="agent-icon" style="background-color: rgba(28, 200, 138, 0.2); color: #1CC88A;">
-                            <i class="fas fa-thumbs-up"></i>
-                        </div>
-                        <div class="agent-title text-green-600">UCC Recommend Agent</div>
-                        <div class="agent-desc">UCC 콘텐츠 추천</div>
-                    </div>
-                    
-                    <!-- Coding Agent -->
-                    <div class="agent-card" style="animation: fadeInUp 0.8s forwards 2.2s; border-bottom: 4px solid #E74A3B;">
-                        <div class="agent-icon" style="background-color: rgba(231, 74, 59, 0.2); color: #E74A3B;">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="agent-title text-red-600">Coding Agent</div>
-                        <div class="agent-desc">개발 관련 코드 예시 제공</div>
-                    </div>
-                    
-                    <!-- Sales Agent -->
-                    <div class="agent-card" style="animation: fadeInUp 0.8s forwards 2.3s; border-bottom: 4px solid #9B59B6;">
-                        <div class="agent-icon" style="background-color: rgba(155, 89, 182, 0.2); color: #9B59B6;">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="agent-title text-purple-600">Sales Agent</div>
-                        <div class="agent-desc">제품·판매 정보 제공</div>
-                    </div>
+                                         <!-- User Input -->                     <div class="agent-box input-agent delay-1 w-56 text-center">                         <div class="agent-icon text-blue-600"><i class="fas fa-user-alt"></i></div>                         <div class="agent-title">User Input</div>                         <div class="agent-desc">고객 질문 접수</div>                     </div>                     <div class="arrow"></div>                                          <!-- Preprocessing Agent -->                     <div class="agent-box input-agent delay-2 w-56 text-center">                         <div class="agent-icon text-purple-600"><i class="fas fa-cogs"></i></div>                         <div class="agent-title">Preprocessing Agent</div>                         <div class="agent-desc">질문 의도 파악 및 정리</div>                     </div>                     <div class="arrow"></div>                                          <!-- GateKeeper Agent (Super Agent) -->                     <div class="agent-box super-agent delay-3 w-56 text-center">                         <div class="super-icon text-green-600"><i class="fas fa-crown"></i></div>                         <div class="super-title">GateKeeper Agent</div>                         <div class="super-desc">슈퍼 에이전트<br>질문 분석 후 전문 Agent 선택<br>답변 통합 및 최종 응답</div>                     </div>
                 </div>
                 
-                <!-- 화살표 배치 (수직선에서 각 전문 에이전트로) -->
-                <div class="agent-arrow" style="transform: rotate(90deg); left: 292px; top: 376px; animation: fadeIn 0.3s forwards 2.4s;"></div>
-                <div class="agent-arrow" style="transform: rotate(90deg); left: 452px; top: 376px; animation: fadeIn 0.3s forwards 2.4s;"></div>
-                <div class="agent-arrow" style="transform: rotate(90deg); left: 610px; top: 376px; animation: fadeIn 0.3s forwards 2.4s;"></div>
-                <div class="agent-arrow" style="transform: rotate(90deg); left: 770px; top: 376px; animation: fadeIn 0.3s forwards 2.4s;"></div>
+                                 <!-- 중앙: 연결선들 -->                 <div class="flex flex-col justify-center items-center" style="width: 100px; position: relative;">                     <!-- 연결선들은 CSS로 처리 -->                     <div class="connection-line delay-4" style="width: 80px; top: 45%; animation-delay: 2.5s;"></div>                     <div class="connection-line delay-4" style="width: 80px; top: 55%; animation-delay: 2.7s;"></div>                     <div class="connection-line delay-4" style="width: 80px; top: 65%; animation-delay: 2.9s;"></div>                     <div class="connection-line delay-4" style="width: 80px; top: 75%; animation-delay: 3.1s;"></div>                 </div>
                 
-                <!-- WIZnet 데이터베이스 배경 -->
-                <div class="database-background">
-                    <div class="flex items-center text-blue-800">
-                        <i class="fas fa-database mr-2"></i>
-                        <span>WIZnet 데이터</span>
-                    </div>
-                    <div class="flex justify-around w-full mt-2">
-                        <div class="text-sm text-gray-600"><i class="far fa-file-alt mr-1"></i> Docs</div>
-                        <div class="text-sm text-gray-600"><i class="fas fa-users mr-1"></i> UCC</div>
-                        <div class="text-sm text-gray-600"><i class="far fa-comments mr-1"></i> Forum</div>
+                <!-- 오른쪽: 전문 에이전트들 + RAG DB -->                <div class="flex-1 flex flex-col justify-center items-center">                    <div class="section-label">전문 Agent들 + RAG 데이터베이스</div>                                        <div class="flex gap-3 justify-center">                        <!-- 전문 Agent들 -->                        <div class="grid grid-cols-2 gap-2">
+                            <!-- Docs-QA Agent -->
+                            <div class="agent-box specialist-agent delay-4 text-center">
+                                <div class="agent-icon text-red-600"><i class="fas fa-book"></i></div>
+                                <div class="agent-title">Docs-QA Agent</div>
+                                <div class="agent-desc">제품 문서·매뉴얼<br>질의응답</div>
+                            </div>
+                            
+                            <!-- UCC Recommend Agent -->
+                            <div class="agent-box specialist-agent delay-5 text-center">
+                                <div class="agent-icon text-yellow-600"><i class="fas fa-video"></i></div>
+                                <div class="agent-title">UCC Recommend Agent</div>
+                                <div class="agent-desc">UCC 콘텐츠 추천</div>
+                            </div>
+                            
+                            <!-- Coding Agent -->
+                            <div class="agent-box specialist-agent delay-6 text-center">
+                                <div class="agent-icon text-blue-600"><i class="fas fa-code"></i></div>
+                                <div class="agent-title">Coding Agent</div>
+                                <div class="agent-desc">개발 관련 코드<br>예시 제공</div>
+                            </div>
+                            
+                            <!-- Sales Agent -->
+                            <div class="agent-box specialist-agent delay-7 text-center">
+                                <div class="agent-icon text-green-600"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="agent-title">Sales Agent</div>
+                                <div class="agent-desc">제품·판매 정보 제공</div>
+                            </div>
+                        </div>
+                        
+                                                 <!-- RAG 데이터베이스 -->                         <div class="rag-db delay-8" style="width: 170px;">                             <div class="rag-title">                                 <i class="fas fa-database text-base mb-1 text-gray-600"></i><br>                                 WIZnet RAG DB                             </div>                             <div class="rag-desc">                                 <span class="text-blue-600">• Docs</span><br>                                 <span class="text-green-600">• UCC</span><br>                                 <span class="text-purple-600">• Forum</span><br>                                 <span class="text-orange-600">• Knowledge Base</span>                             </div>                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- 페이지 번호 -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-500">
-            5 / 14
+            
+                         <!-- 하단 설명 -->             <div class="mt-2 text-center">                 <div class="inline-block bg-blue-50 border border-blue-200 rounded-lg px-3 py-1 opacity-0" style="animation: fadeIn 1s forwards 3.5s;">                     <p class="text-xs text-blue-800">                         <i class="fas fa-info-circle mr-1"></i>                         <strong>GateKeeper Agent</strong>가 질문을 분석하여 적절한 전문 Agent를 선택하고, RAG DB를 활용한 답변을 통합하여 최종 응답을 생성합니다.                     </p>                 </div>             </div>
         </div>
         
         <!-- 로고 -->
         <div class="logo">
-            <img src="C:\Users\Benjamin\wiznet\ppt\wiznet_logo.svg" alt="WIZnet Logo">
+            <img src="../wiznet_logo.svg" alt="WIZnet Logo">
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 에이전트 카드 호버 효과
-            const cards = document.querySelectorAll('.agent-card');
-            
-            cards.forEach((card) => {
-                card.addEventListener('mouseenter', () => {
-                    const icon = card.querySelector('.agent-icon');
-                    icon.style.transform = 'scale(1.2)';
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    const icon = card.querySelector('.agent-icon');
-                    icon.style.transform = 'scale(1)';
-                });
-            });
-            
-            // Gate Keeper 카드 강조 효과
-            setTimeout(() => {
-                const gateKeeper = document.querySelectorAll('.agent-card')[2];
-                gateKeeper.style.animation = 'pulse 2s infinite';
-            }, 2500);
-        });
-    </script>
 </body>
 </html>
+
