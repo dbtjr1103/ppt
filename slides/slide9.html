@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>큐레이션 참여 방법</title>
+    <title>"Dancing with Customers" 주간 핵심 활동</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -21,13 +21,18 @@
             position: relative;
             background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
             overflow: hidden;
+            padding: 40px 50px; /* 전체 슬라이드 여백 조정 */
+            box-sizing: border-box;
         }
         .title {
-            font-size: 2.5rem;
+            font-size: 2.4rem; /* 약간 더 키움 */
             font-weight: 700;
             color: #0056b3;
             opacity: 0;
             animation: fadeInDown 0.8s forwards;
+            line-height: 1.25;
+            text-align: left; /* 왼쪽 정렬 */
+            margin-bottom: 15px; /* 여백 조정 */
         }
         .grid-pattern {
             position: absolute;
@@ -37,343 +42,180 @@
             height: 100%;
             background-image: radial-gradient(#0056b320 1px, transparent 1px);
             background-size: 30px 30px;
-            z-index: 0;
+            z-index: -1; /* 내용 뒤로 */
         }
         .circuit-line {
             position: absolute;
-            background-color: rgba(0, 86, 179, 0.1);
-            z-index: 0;
+            background-color: rgba(0, 86, 179, 0.08); /* 더 연하게 */
+            z-index: -1;
         }
         .content-wrapper {
             position: relative;
             z-index: 1;
+            height: auto;
         }
         .logo {
             position: absolute;
-            bottom: 40px;
-            right: 40px;
-            width: 60px;
-            height: 60px;
+            top: 40px;  /* slide8.html 참고 (가정) */
+            right: 50px; /* slide8.html 참고 (가정) */
+            width: 80px;  /* slide8.html 참고 (가정) */
+            height: auto; /* 비율 유지 */
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .step-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.1);
-            transition: all 0.3s ease;
-            opacity: 0;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        .step-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0, 86, 179, 0.15);
-        }
-        .step-header {
+        .section-title {
+            font-size: 1.4rem; /* 약간 더 키움 */
+            font-weight: 600;
+            color: #0056b3;
+            margin-bottom: 0.6rem;
+            margin-top: 1.2rem;
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
         }
-        .step-number {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: #0056b3;
-            color: white;
+        .section-title i {
+            margin-right: 0.5rem;
+            color: #f59e0b;
+        }
+        .list-item {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-right: 12px;
-            flex-shrink: 0;
+            align-items: flex-start;
+            margin-bottom: 0.4rem;
+            padding-left: 0.3rem;
+            font-size: 0.85rem; /* 약간 더 키움 */
         }
-        .step-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-right: 12px;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
+        .list-item i {
+            margin-right: 0.4rem;
+            color: #10b981;
+            margin-top: 4px; /* 아이콘 정렬 */
+            font-size: 0.95em;
         }
-        .step-card:hover .step-icon {
-            transform: scale(1.05);
+        .card {
+            background-color: rgba(255, 255, 255, 0.85); /* 투명도 살짝 */
+            border-radius: 8px; /* 좀 더 부드럽게 */
+            padding: 12px 15px;
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.08);
+            margin-bottom: 0.7rem;
+            border-left: 4px solid #0056b3; /* 강조색 유지 */
         }
-        .timeline {
-            position: relative;
-            padding-left: 25px;
-            opacity: 0;
-            animation: fadeInUp 0.8s forwards 1.2s;
+        .card h4 {
+            font-size: 1.05rem; /* 약간 더 키움 */
+            font-weight: 600;
+            color: #004a99;
+            margin-bottom: 0.4rem;
         }
-        .timeline:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 3px;
-            background: linear-gradient(to bottom, #0056b3 0%, rgba(0, 86, 179, 0.3) 100%);
-            border-radius: 2px;
+        .card p, .card ul {
+            font-size: 0.85rem; /* 약간 더 키움 */
+            color: #2c3e50; /* 가독성 좋은 어두운 색 */
+            line-height: 1.55;
         }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 20px;
+        .card ul {
+            list-style-position: inside;
+            padding-left: 0.3rem;
         }
-        .timeline-item:last-child {
-            margin-bottom: 0;
+        .card .target-text {
+            font-size: 0.8rem; /* 약간 더 키움 */
+            font-weight: 500;
+            color: #006400; /* 진한 녹색 */
+            background-color: #e6f7e6; /* 연한 녹색 배경 */
+            padding: 4px 7px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.4rem;
         }
-        .timeline-dot {
-            position: absolute;
-            left: -28px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background-color: #0056b3;
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.3);
-            top: 4px;
-        }
-        .notice-banner {
-            background: linear-gradient(90deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
-            border-left: 4px solid #f59e0b;
-            padding: 14px 18px;
+        .encouragement-message {
+            margin-top: 1.2rem;
+            padding: 0.9rem 1.1rem;
+            background: linear-gradient(135deg, rgba(0, 86, 179, 0.04) 0%, rgba(0, 123, 255, 0.04) 100%);
+            border-left: 4px solid #0056b3;
             border-radius: 0 8px 8px 0;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 1.4s;
-        }
-        .quality-notice {
-            background: linear-gradient(90deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
-            border-left: 4px solid #ef4444;
-            padding: 12px 16px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 12px;
+            color: #2c3e50;
+            font-size: 0.9rem; /* 약간 더 키움 */
+            line-height: 1.65;
         }
 
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
     </style>
 </head>
 <body>
-    <div class="slide-container flex flex-col">
-        <!-- 배경 패턴 -->
+    <div class="slide-container flex flex-col justify-between"> <!-- justify-between 추가로 하단 공간 확보 시도 -->
         <div class="grid-pattern"></div>
+        <!-- 회로 라인 장식 제거 또는 최소화 (공간 확보) -->
+        <!-- <div class="circuit-line" style="top: 160px; left: 0; width: 25%; height: 2px;"></div> -->
+        <!-- <div class="circuit-line" style="top: 400px; right: 0; width: 30%; height: 2px;"></div> -->
         
-        <!-- 회로 라인 장식 -->
-        <div class="circuit-line" style="top: 160px; left: 0; width: 25%; height: 2px;"></div>
-        <div class="circuit-line" style="top: 400px; right: 0; width: 30%; height: 2px;"></div>
-        <div class="circuit-line" style="top: 0; left: 300px; width: 2px; height: 15%;"></div>
-        <div class="circuit-line" style="bottom: 0; right: 200px; width: 2px; height: 20%;"></div>
+        <header class="flex justify-between items-start"> <!-- 헤더 영역으로 제목과 로고 묶기 -->
+            <h1 class="title" style="animation-delay: 0.2s;">"Dancing with Customers" 주간 핵심 활동</h1>
+            <div class="logo">
+                <img src="../wiznet_logo.svg" alt="WIZnet Logo" class="object-contain">
+            </div>
+        </header>
         
-        <!-- 메인 콘텐츠 -->
-        <div class="content-wrapper w-full px-12 py-8 h-full">
-            <h1 class="title mb-6">큐레이션 참여 방법</h1>
-            
-            <!-- 3단계 프로세스 카드 -->
-            <div class="grid grid-cols-3 gap-5 mb-5">
-                <!-- 1단계: 분류 기준 참고 -->
-                <div class="step-card" style="animation: fadeInUp 0.5s forwards 0.4s; border-top: 4px solid #0056b3;">
-                    <div class="step-header">
-                        <div class="step-number">1</div>
-                        <h3 class="text-base font-bold text-gray-800">분류 기준 참고</h3>
+        <main class="content-wrapper mt-2 flex-grow">
+            <p class="text-gray-700 text-sm mb-3" style="opacity:0; animation: fadeIn 0.8s forwards 0.5s; line-height:1.45;">
+                고객과의 적극적 소통과 SDA의 기반 강화를 위한 활동으로 여러분의 전문성이 WIZnet AI 성공의 토대입니다!
+            </p>
+
+            <div style="opacity:0; animation: fadeInUp 0.6s forwards 0.8s;">
+                <h2 class="section-title"><i class="fas fa-bullseye"></i>주간 집중 목표</h2>
+                <ul class="space-y-0.5 mb-2">
+                    <li class="list-item"><i class="fas fa-check-circle"></i>SDA 핵심 구성요소 생성: 일 50+ UCC 심층 분석/가공 → SDA Software/Data Asset 구축.</li>
+                    <li class="list-item"><i class="fas fa-check-circle"></i>Maker Site 활성화: 고품질 기술/사례 게시물 증대 → 고객/개발자 커뮤니티 강화 (월 1,000건 UCC 목표 기여).</li>
+                    <li class="list-item"><i class="fas fa-check-circle"></i>고객 문의 데이터 자산화: 전 채널 고객 데이터 분석/정제 → SDA 지식 기반 확장 및 서비스 개선.</li>
+                </ul>
+            </div>
+
+            <div style="opacity:0; animation: fadeInUp 0.6s forwards 1.0s;">
+                <h2 class="section-title"><i class="fas fa-tasks"></i>매주 함께 할 실행 과제 (Weekly Action Items)</h2>
+                <div class="grid grid-cols-2 gap-x-4 gap-y-2"> <!-- gap 조정 -->
+                    <div class="card" style="border-left-color: #007bff;">
+                        <h4>1. 매주 찾아지는 UCC의 정제 (품질 향상)</h4>
+                        <p>신규 UCC 중 유의미 콘텐츠 선별 (중복, 노이즈 제거), 팀/제품별 분담.</p>
+                        <p class="target-text"><strong>목표:</strong> SDA 기초 원석 발굴.</p>
                     </div>
-                    <div class="flex items-start">
-                        <div class="step-icon" style="background-color: rgba(0, 86, 179, 0.1); color: #0056b3;">
-                            <i class="fas fa-clipboard-list"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-3 text-sm">몇 가지 테스트 이후 공유될 분류 기준을 확인합니다.</p>
-                            <div class="bg-gray-100 p-2 rounded-md">
-                                <div class="flex items-center text-xs mb-1">
-                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                    <span>적합한 콘텐츠 기준</span>
-                                </div>
-                                <div class="flex items-center text-xs">
-                                    <i class="fas fa-times-circle text-red-500 mr-2"></i>
-                                    <span>제외할 콘텐츠 기준</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card" style="border-left-color: #28a745;">
+                        <h4>2. 신규 UCC 기반 콘텐츠 발행 (AI 활용)</h4>
+                        <p>AI 도움(초안, 교정)으로 Maker Site 게시글(How-To, Success Story) 작성, 전문가 검토.</p>
+                        <p class="target-text"><strong>목표:</strong> 커뮤니티 활성화, SDA 원천 데이터 생성.</p>
                     </div>
-                </div>
-                
-                <!-- 2단계: UCC 검토 및 분류 -->
-                <div class="step-card" style="animation: fadeInUp 0.5s forwards 0.6s; border-top: 4px solid #10b981;">
-                    <div class="step-header">
-                        <div class="step-number">2</div>
-                        <h3 class="text-base font-bold text-gray-800">UCC 검토·분류</h3>
+                    <div class="card" style="border-left-color: #ffc107;">
+                        <h4>3. UCC 심층 큐레이션 → SDA 핵심 구성요소화</h4>
+                        <p>UCC 및 콘텐츠를 SDA용 Software/Data Asset으로 심층 가공 (분석, 정보추출, Q&A 생성 등).</p>
+                        <p class="target-text"><strong>목표:</strong> SDA 구동 핵심 엔진 구축.</p>
                     </div>
-                    <div class="flex items-start">
-                        <div class="step-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-3 text-sm">분류 기준에 따라 UCC를 검토하고 분류합니다.</p>
-                            <div class="flex flex-col space-y-2">
-                                <div class="flex items-center bg-green-50 p-2 rounded-md">
-                                    <i class="fas fa-thumbs-up text-green-500 mr-2"></i>
-                                    <span class="text-xs">제품·기술 활용 사례</span>
-                                </div>
-                                <div class="flex items-center bg-red-50 p-2 rounded-md">
-                                    <i class="fas fa-filter text-red-500 mr-2"></i>
-                                    <span class="text-xs">노이즈 및 무관련 콘텐츠</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 3단계: Maker Site에 업로드 -->
-                <div class="step-card" style="animation: fadeInUp 0.5s forwards 0.8s; border-top: 4px solid #f59e0b;">
-                    <div class="step-header">
-                        <div class="step-number">3</div>
-                        <h3 class="text-base font-bold text-gray-800">Maker Site 업로드</h3>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="step-icon" style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b;">
-                            <i class="fas fa-upload"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-3 text-sm">마케팅 활용을 위해 Maker Site에 꼼꼼하게 업로드합니다.</p>
-                            <div class="quality-notice">
-                                <div class="flex items-center text-xs text-red-700">
-                                    <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
-                                    <span class="font-medium">기존 퀄리티 많이 떨어짐</span>
-                                </div>
-                                <p class="text-xs text-red-600 mt-1">품질 개선이 시급합니다</p>
-                            </div>
-                        </div>
+                    <div class="card" style="border-left-color: #dc3545;">
+                        <h4>4. 고객 문의 데이터 통합 분석 → SDA 지식 자산화</h4>
+                        <p>전 채널 고객 문의 취합/분석 (유형화, FAQ/우수답변 추출), SDA 지식 기반 편입.</p>
+                        <p class="target-text"><strong>목표:</strong> VOC 활용 AI 문제 해결 능력/서비스 품질 향상.</p>
                     </div>
                 </div>
             </div>
-            
-            <!-- 하단 영역 -->
-            <div class="grid grid-cols-2 gap-6">
-                <!-- 왼쪽: 타임라인 -->
-                <div class="timeline">
-                    <h3 class="text-lg font-bold text-blue-700 mb-3">
-                        <i class="fas fa-calendar-alt mr-2"></i>
-                        상세 안내 일정
-                    </h3>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="flex items-center flex-wrap">
-                            <div class="bg-blue-100 text-blue-800 font-medium px-2 py-1 rounded text-sm mr-2 mb-1">이번 주 금요일</div>
-                            <span class="text-gray-700 text-sm">또는</span>
-                            <div class="bg-blue-100 text-blue-800 font-medium px-2 py-1 rounded text-sm mx-2 mb-1">다음 주 초</div>
-                        </div>
-                        <p class="text-gray-600 text-sm mt-1">그룹웨어를 통한 상세 안내 공지 예정</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="font-medium text-gray-800 text-sm">분류 및 데이터 저장 방법 안내</div>
-                        <p class="text-gray-600 text-sm mt-1">큐레이션 작업 관련 상세 지침 제공</p>
-                    </div>
-                </div>
-                
-                <!-- 오른쪽: 알림 및 참고사항 -->
-                <div>
-                    <!-- 알림 배너 -->
-                    <div class="notice-banner">
-                        <div class="flex items-center mb-2">
-                            <i class="fas fa-bell text-yellow-600 text-lg mr-2"></i>
-                            <h3 class="text-base font-bold text-yellow-700">중요 공지</h3>
-                        </div>
-                        <p class="text-gray-700 text-sm">
-                            관련 분류 및 데이터 저장 방법은 이번 주 금요일 또는 다음 주 초에 그룹웨어로 상세 공지 예정입니다.
-                        </p>
-                    </div>
-                    
-                    <!-- 핵심 포인트 -->
-                    <div class="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4 opacity-0" style="animation: fadeIn 0.8s forwards 1.6s;">
-                        <h4 class="text-base font-bold text-blue-800 mb-2">
-                            <i class="fas fa-star text-yellow-500 mr-2"></i>핵심 포인트
-                        </h4>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-sm">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-700">테스트 후 제공되는 분류 기준 숙지</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-700">UCC 꼼꼼한 검토 및 분류</span>
-                            </div>
-                            <div class="flex items-center text-sm">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-700">Maker Site 품질 개선 목표</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="encouragement-message" style="opacity:0; animation: fadeIn 0.8s forwards 1.2s; margin-top:0.8rem; padding: 0.7rem 1rem;">
+                <i class="fas fa-rocket mr-1 text-blue-600"></i>
+                본 활동은 SDA 성공의 핵심입니다. 초기 노력으로 WIZnet AI의 강력한 경쟁력을 함께 만들어갑시다. 적극적 참여와 피드백을 환영합니다!
             </div>
-        </div>
+        </main>
         
-        <!-- 페이지 번호 -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-500">
-            9 / 14
-        </div>
-        
-        <!-- 로고 -->
-        <div class="logo">
-            <img src="../wiznet_logo.svg" alt="WIZnet Logo">
-        </div>
+        <footer class="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-gray-500 text-sm"> <!-- bottom, color, font-size 조정 -->
+            10 / 14
+        </footer>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 카드 애니메이션 설정
-            const stepCards = document.querySelectorAll('.step-card');
-            stepCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                }, 400 + (index * 200));
-                
-                card.addEventListener('mouseenter', () => {
-                    const icon = card.querySelector('.step-icon');
-                    icon.style.transform = 'scale(1.05)';
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    const icon = card.querySelector('.step-icon');
-                    icon.style.transform = 'scale(1)';
-                });
-            });
-        });
+        // 애니메이션은 CSS로 처리.
     </script>
 </body>
 </html>
