@@ -386,127 +386,6 @@
           height: 40px;
         }
         /* PROVIDED CSS ENDS HERE */
-
-        @media print {
-            /* 기본 요소 숨기기 */
-            body > *:not(.keynote-container) { /* keynote-container 외부의 모든 요소 숨기기 */
-                display: none !important;
-            }
-            .keynote-header,
-            .slide-header,
-            .action-buttons,
-            #fullscreen-mode,
-            .fullscreen-container,
-            .fullscreen-nav,
-            .fullscreen-exit,
-            #print-loading-overlay
-            {
-                display: none !important;
-            }
-
-            /* 전체 레이아웃 조정 */
-            html, body {
-                margin: 0 !important;
-                padding: 0 !important;
-                background-color: #ffffff !important;
-                width: 100% !important; /* 중요: 인쇄 영역을 100%로 */
-                height: auto !important;
-                overflow: visible !important;
-                -webkit-print-color-adjust: exact !important;
-                color-adjust: exact !important;
-            }
-            .keynote-container,
-            .keynote-layout,
-            .keynote-main,
-            #normal-mode {
-                margin: 0 !important;
-                padding: 0 !important;
-                background-color: #ffffff !important;
-                box-shadow: none !important;
-                border: none !important;
-                width: 100% !important;
-                height: auto !important;
-                overflow: visible !important;
-            }
-
-            .slides-container {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 5mm !important; /* 슬라이드 간 수직 간격 */
-                width: 100% !important;
-                box-sizing: border-box !important;
-                padding: 5mm 0 !important; /* 페이지 위아래 여백 */
-            }
-
-            .slide-content {
-                width: 190mm !important; /* A4 가로 용지폭(210mm) - 양쪽 여백(10mm*2) 고려 */
-                max-width: 100% !important; /* 부모를 넘지 않도록 */
-                margin: 0 auto !important;
-                padding: 0 !important;
-                box-sizing: border-box !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-                border: 1px solid #ddd !important; /* 슬라이드 테두리 */
-                overflow: hidden !important; /* 내부 iframe이 넘치면 자름 */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .iframe-container {
-                width: 100% !important; /* .slide-content 너비에 맞춤 */
-                height: auto !important;
-                aspect-ratio: 1280 / 720 !important; /* 슬라이드 원본 비율 유지 */
-                /* max-height는 개별 슬라이드의 최대 높이를 제한. 페이지당 2개 배치와는 별개. */
-                /* A4 세로에서 위아래 5mm씩 여백, 슬라이드간 5mm 간격이면,
-                   (297mm - 10mm(상하여백) - 5mm(슬라이드간격)) / 2 = 약 141mm 가 한 슬라이드의 이론적 최대 높이 */
-                max-height: 140mm !important; /* 이 값을 넘으면 비율에 따라 너비도 줄어듦 */
-                border: none !important;
-                box-shadow: none !important;
-                transform: none !important;
-                overflow: hidden !important;
-                position: relative !important;
-                background-color: #fff; /* 로딩 전 배경 */
-            }
-
-            .iframe-container iframe {
-                position: absolute !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
-                border: none !important;
-                visibility: visible !important;
-                transform: scale(1) !important; /* 스케일링 제거 또는 확인 */
-                transform-origin: top left !important;
-            }
-            
-            /* 페이지 나누기: 각 .slide-content가 새 페이지에서 시작하지 않도록 하고,
-               .slides-container 내에서 .slide-content 2개마다 페이지 나누기를 시도 */
-            .slides-container > .slide-content {
-                page-break-before: avoid !important;
-                break-before: avoid !important;
-            }
-
-            .slides-container > .slide-content:nth-child(2n) {
-                 page-break-after: always !important;
-                 break-after: page !important;
-            }
-            .slides-container > .slide-content:last-child {
-                 page-break-after: avoid !important;
-                 break-after: avoid !important;
-            }
-
-            /* 인쇄 시 스크롤바 숨기기 */
-            body::-webkit-scrollbar {
-                display: none;
-            }
-            body {
-                -ms-overflow-style: none;  /* IE and Edge */
-                scrollbar-width: none;  /* Firefox */
-            }
-        }
     </style>
 </head>
 <body>
@@ -531,17 +410,6 @@
                                     <path stroke="currentColor" stroke-linejoin="round" stroke-width="1.8" d="M7 12V6.741a1 1 0 0 1 1.504-.864L13 8.5l4.52 2.636a1 1 0 0 1 0 1.728L13 15.5l-4.496 2.623A1 1 0 0 1 7 17.259z"></path>
                                 </svg>
                                 <div class="play-slides-text">Play Slides</div>
-                            </div>
-                        </div>
-                        <!-- Download PDF Button -->
-                        <div class="button-play-slides" onclick="downloadAsPDF()" style="cursor: pointer;">
-                            <div class="button-play-slides-content">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="slide-icon">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg>
-                                <div class="play-slides-text">Download PDF</div>
                             </div>
                         </div>
                     </div>
@@ -585,12 +453,6 @@
 
         let currentSlide = 0;
         let isAppDisplayingFullscreenUI = false; // 앱의 내부 UI가 전체화면 모드인지 나타내는 플래그
-
-        function downloadAsPDF() {
-            // 로딩 로직 및 오버레이 제거
-            // 사용자가 모든 슬라이드를 스크롤하여 로드했다고 가정하고 바로 인쇄 실행
-            window.print();
-        }
 
         function init() {
             generateSlides();
